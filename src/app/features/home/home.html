@@ -1,40 +1,19 @@
-<div class="container">
-  <!-- Multi-layer gradient con noise -->
-  <div class="fixed inset-0 -z-10 overflow-hidden">
-    <!-- Base gradient -->
-    <div
-      class="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,_#4f46e5,_transparent_50%),radial-gradient(circle_at_70%_80%,_#ec4899,_transparent_50%)] bg-slate-950"
-    ></div>
-
-    <!-- Noise overlay -->
-    <div
-      class="absolute inset-0 opacity-40 mix-blend-overlay"
-      style="
-        background-image: url('data:image/svg+xml;utf8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;300&quot; height=&quot;300&quot;><filter id=&quot;n&quot;><feTurbulence type=&quot;fractalNoise&quot; baseFrequency=&quot;0.9&quot; numOctaves=&quot;4&quot; stitchTiles=&quot;stitch&quot;/><feColorMatrix type=&quot;saturate&quot; values=&quot;0&quot;/></filter><rect width=&quot;100%&quot; height=&quot;100%&quot; filter=&quot;url(%23n)&quot;/></svg>');
-        background-size: 200px 200px;
-      "
-    ></div>
-  </div>
-
-  <!-- Contenuto -->
-</div>
-
-<div class="container flex flex-col h-screen">
+<div class="container p-0 flex flex-col h-screen">
   <!-- Header full-width -->
-  <header class="w-full h-16 mt-4 mb-8">
+  <header class="md:w-full h-16 md:mt-4 md:mb-8 fixed inset-3 md:inset-0 z-999 md:relative">
     <app-header [activeSection]="activeSection()"></app-header>
   </header>
 
   <!-- Container per sidebar e contenuto -->
   <div class="flex flex-1 overflow-hidden">
     <!-- Sidebar -->
-    <aside class="w-80 overflow-y-auto ">
+    <aside class="hidden md:block w-80 overflow-y-auto ">
       <app-sidebar></app-sidebar>
     </aside>
 
     <!-- Contenuto principale scrollabile -->
-    <main class="flex-1 overflow-y-auto mb-8 main-content" style="padding-bottom: 120px" overlay-scrollbars [options]="{ scrollbars: { autoHide: 'move' } }" [defer]="true">
-      <div class="pl-8">
+    <main class="flex-1 md:overflow-y-auto md:mb-8 main-content pt-[120px] md:pt-0" style="padding-bottom: 120px" overlay-scrollbars [options]="{ scrollbars: { autoHide: 'move' } }" [defer]="true">
+      <div class="p-3 md:p-0 md:pl-8">
         <!-- Chi Sono -->
         <section
           id="about"

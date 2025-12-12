@@ -1,1 +1,17 @@
-<router-outlet />
+<!-- Multi-layer gradient con noise -->
+<div class="fixed inset-0 -z-10 overflow-hidden">
+  <!-- Base gradient -->
+  <div
+    class="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,_#4f46e5,_transparent_50%),radial-gradient(circle_at_70%_80%,_#ec4899,_transparent_50%)] bg-slate-950"
+  ></div>
+
+  <!-- Noise overlay -->
+  <div
+    class="absolute inset-0 opacity-40 mix-blend-overlay"
+    style="
+        background-image: url('data:image/svg+xml;utf8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;300&quot; height=&quot;300&quot;><filter id=&quot;n&quot;><feTurbulence type=&quot;fractalNoise&quot; baseFrequency=&quot;0.9&quot; numOctaves=&quot;4&quot; stitchTiles=&quot;stitch&quot;/><feColorMatrix type=&quot;saturate&quot; values=&quot;0&quot;/></filter><rect width=&quot;100%&quot; height=&quot;100%&quot; filter=&quot;url(%23n)&quot;/></svg>');
+        background-size: 200px 200px;
+      "
+  ></div>
+</div>
+<router-outlet/>
