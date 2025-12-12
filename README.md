@@ -9,6 +9,5 @@ Portfolio personale sviluppato con Angular 21, Spartan UI e Tailwind CSS con ren
 - **Spartan UI** - Componenti UI (`@spartan-ng/helm`, `@ng-icons/lucide`)
 - **Tailwind CSS** - Utility-first CSS framework
 - **TypeScript** - Type-safe development
-- **Geist Font** - Font moderno e leggibile
 - **GitHub Pages** - Hosting statico gratuito
 - **GitHub Actions** - CI/CD automatico per il deploy
