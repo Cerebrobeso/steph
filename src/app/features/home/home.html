@@ -1,0 +1,196 @@
+<div class="relative">
+  <!-- Multi-layer gradient con noise -->
+  <div class="fixed inset-0 -z-10 overflow-hidden">
+    <!-- Base gradient -->
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,_#4f46e5,_transparent_50%),radial-gradient(circle_at_70%_80%,_#ec4899,_transparent_50%)] bg-slate-950">
+    </div>
+
+    <!-- Noise overlay -->
+    <div class="absolute inset-0 opacity-40 mix-blend-overlay"
+         style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;300&quot; height=&quot;300&quot;><filter id=&quot;n&quot;><feTurbulence type=&quot;fractalNoise&quot; baseFrequency=&quot;0.9&quot; numOctaves=&quot;4&quot; stitchTiles=&quot;stitch&quot;/><feColorMatrix type=&quot;saturate&quot; values=&quot;0&quot;/></filter><rect width=&quot;100%&quot; height=&quot;100%&quot; filter=&quot;url(%23n)&quot;/></svg>'); background-size: 200px 200px;">
+    </div>
+  </div>
+
+  <!-- Contenuto -->
+</div>
+
+<div class="container flex flex-col h-screen">
+  <!-- Header full-width -->
+  <header class="w-full h-16 mt-4 mb-8">
+    <app-header></app-header>
+  </header>
+
+  <!-- Container per sidebar e contenuto -->
+  <div class="flex flex-1 overflow-hidden">
+    <!-- Sidebar -->
+    <aside class="w-80 overflow-y-auto">
+      <app-sidebar></app-sidebar>
+    </aside>
+
+    <!-- Contenuto principale scrollabile -->
+    <main class="flex-1 overflow-y-auto mb-8" style="padding-bottom: 120px;">
+      <div class="container mx-auto px-8">
+        <!-- Chi Sono -->
+        <section id="about" class="min-h-80 scroll-mt-0 mb-8 border rounded-lg bg-card p-8">
+          <h2 class="text-3xl font-bold mb-6">Chi Sono</h2>
+          <div class="prose prose-lg dark:prose-invert max-w-none">
+            <p class="text-muted-foreground">
+              Sono un Full Stack Developer con oltre 5 anni di esperienza nello sviluppo
+              di applicazioni web e mobile. Mi specializzo in Angular, TypeScript e
+              nell'architettura di soluzioni scalabili e performanti.
+            </p>
+            <p class="text-muted-foreground mt-4">
+              La mia passione per il codice pulito e le best practices mi porta
+              costantemente ad approfondire nuove tecnologie e metodologie di sviluppo.
+            </p>
+          </div>
+        </section>
+
+        <!-- Esperienza -->
+        <section id="experience" class="min-h-80 scroll-mt-0 mb-8 border rounded-lg bg-card p-8">
+          <h2 class="text-3xl font-bold mb-6">Esperienza</h2>
+          <div class="space-y-8">
+            <div class="border-l-2 border-primary pl-6">
+              <div class="flex items-center gap-2 mb-2">
+                <h3 class="text-xl font-semibold">Senior Full Stack Developer</h3>
+                <span class="text-sm text-muted-foreground">2021 - Presente</span>
+              </div>
+              <p class="text-sm font-medium text-muted-foreground mb-2">Tech Company SRL</p>
+              <p class="text-muted-foreground">
+                Sviluppo e manutenzione di applicazioni enterprise con Angular,
+                implementazione di architetture microservizi, mentoring del team junior.
+              </p>
+            </div>
+
+            <div class="border-l-2 border-muted pl-6">
+              <div class="flex items-center gap-2 mb-2">
+                <h3 class="text-xl font-semibold">Full Stack Developer</h3>
+                <span class="text-sm text-muted-foreground">2019 - 2021</span>
+              </div>
+              <p class="text-sm font-medium text-muted-foreground mb-2">Digital Agency</p>
+              <p class="text-muted-foreground">
+                Sviluppo di applicazioni web responsive e mobile-first,
+                integrazione con API REST, ottimizzazione delle performance.
+              </p>
+            </div>
+
+            <div class="border-l-2 border-muted pl-6">
+              <div class="flex items-center gap-2 mb-2">
+                <h3 class="text-xl font-semibold">Junior Developer</h3>
+                <span class="text-sm text-muted-foreground">2018 - 2019</span>
+              </div>
+              <p class="text-sm font-medium text-muted-foreground mb-2">Startup Innovativa</p>
+              <p class="text-muted-foreground">
+                Primo approccio allo sviluppo professionale, focus su frontend
+                con Angular e sviluppo di componenti riutilizzabili.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Competenze -->
+        <section id="skills" class="min-h-80 scroll-mt-0 mb-8 border rounded-lg bg-card p-8">
+          <h2 class="text-3xl font-bold mb-6">Competenze</h2>
+          <div class="grid grid-cols-2 gap-6">
+            <div class="p-6 border rounded-lg bg-card">
+              <h3 class="text-lg font-semibold mb-4">Frontend</h3>
+              <ul class="space-y-2">
+                <li class="flex items-center gap-2">
+                  <ng-icon hlm size="xs" name="lucideCircle" class="text-primary fill-primary"/>
+                  <span class="text-muted-foreground">Angular 21</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <ng-icon hlm size="xs" name="lucideCircle" class="text-primary fill-primary"/>
+                  <span class="text-muted-foreground">TypeScript</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <ng-icon hlm size="xs" name="lucideCircle" class="text-primary fill-primary"/>
+                  <span class="text-muted-foreground">Tailwind CSS</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="p-6 border rounded-lg bg-card">
+              <h3 class="text-lg font-semibold mb-4">Backend</h3>
+              <ul class="space-y-2">
+                <li class="flex items-center gap-2">
+                  <ng-icon hlm size="xs" name="lucideCircle" class="text-primary fill-primary"/>
+                  <span class="text-muted-foreground">Node.js</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <ng-icon hlm size="xs" name="lucideCircle" class="text-primary fill-primary"/>
+                  <span class="text-muted-foreground">NestJS</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <ng-icon hlm size="xs" name="lucideCircle" class="text-primary fill-primary"/>
+                  <span class="text-muted-foreground">PostgreSQL</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Progetti -->
+        <section id="projects" class="min-h-80 scroll-mt-0 mb-8 border rounded-lg bg-card p-8">
+          <h2 class="text-3xl font-bold mb-6">Progetti</h2>
+          <div class="grid gap-6">
+            <div class="p-6 border rounded-lg bg-card hover:shadow-lg transition-shadow">
+              <h3 class="text-xl font-semibold mb-2">E-commerce Platform</h3>
+              <p class="text-muted-foreground mb-4">
+                Piattaforma e-commerce completa con gestione prodotti, carrello e pagamenti.
+              </p>
+              <div class="flex gap-2">
+                <span class="px-3 py-1 text-xs rounded-full bg-primary/10 text-primary">Angular</span>
+                <span class="px-3 py-1 text-xs rounded-full bg-primary/10 text-primary">Stripe</span>
+              </div>
+            </div>
+
+            <div class="p-6 border rounded-lg bg-card hover:shadow-lg transition-shadow">
+              <h3 class="text-xl font-semibold mb-2">Task Management App</h3>
+              <p class="text-muted-foreground mb-4">
+                Applicazione mobile per la gestione delle attività con sincronizzazione cloud.
+              </p>
+              <div class="flex gap-2">
+                <span class="px-3 py-1 text-xs rounded-full bg-primary/10 text-primary">Ionic</span>
+                <span class="px-3 py-1 text-xs rounded-full bg-primary/10 text-primary">Capacitor</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Contatti -->
+        <section id="contact" class="min-h-80 scroll-mt-0 border rounded-lg bg-card p-8 mb-12">
+          <h2 class="text-3xl font-bold mb-6">Contatti</h2>
+          <p class="text-muted-foreground mb-8">
+            Sono sempre interessato a nuove opportunità e collaborazioni.
+            Non esitare a contattarmi!
+          </p>
+
+          <div class="w-full">
+            <h3 class="text-lg font-semibold mb-4">Scrivimi</h3>
+            <form class="space-y-4">
+              <div>
+                <label class="block text-sm font-medium mb-2">Nome</label>
+                <input type="text" class="w-full px-4 py-2 border rounded-md bg-background" placeholder="Il tuo nome">
+              </div>
+              <div>
+                <label class="block text-sm font-medium mb-2">Email</label>
+                <input type="email" class="w-full px-4 py-2 border rounded-md bg-background"
+                       placeholder="tua@email.com">
+              </div>
+              <div>
+                <label class="block text-sm font-medium mb-2">Messaggio</label>
+                <textarea rows="4" class="w-full px-4 py-2 border rounded-md bg-background"
+                          placeholder="Il tuo messaggio..."></textarea>
+              </div>
+              <button type="submit"
+                      class="flex ml-auto px-6 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors">
+                Invia Messaggio
+              </button>
+            </form>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+</div>

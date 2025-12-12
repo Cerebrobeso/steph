@@ -1,0 +1,54 @@
+<div class="p-8 flex flex-col items-center rounded-lg bg-card backdrop-blur bg-background/95 supports-[backdrop-filter]:bg-background/60">
+  <!-- Immagine profilo -->
+  <div class="w-40 h-40 rounded-full bg-muted mb-6 overflow-hidden">
+    <img
+      src="https://placehold.co/200"
+      alt="Foto profilo"
+      class="w-full h-full object-cover"
+    />
+  </div>
+
+  <!-- Informazioni personali -->
+  <h2 class="text-2xl font-bold mb-2 text-center">Mario Rossi</h2>
+  <p class="text-lg text-muted-foreground mb-4">Full Stack Developer</p>
+
+  <div class="w-full space-y-4 mt-6">
+    <!-- Info contatti -->
+    <div class="flex items-start gap-3">
+      <ng-icon hlm size="sm" name="lucideMail" class="mt-0.5 text-muted-foreground" />
+      <div>
+        <p class="text-sm font-medium">Email</p>
+        <p class="text-sm text-muted-foreground">{{ 'mario.rossi@example.com' }}</p>
+      </div>
+    </div>
+
+    <div class="flex items-start gap-3">
+      <ng-icon hlm size="sm" name="lucidePhone" class="mt-0.5 text-muted-foreground" />
+      <div>
+        <p class="text-sm font-medium">Telefono</p>
+        <p class="text-sm text-muted-foreground">+39 123 456 7890</p>
+      </div>
+    </div>
+
+    <div class="flex items-start gap-3">
+      <ng-icon hlm size="sm" name="lucideMapPin" class="mt-0.5 text-muted-foreground" />
+      <div>
+        <p class="text-sm font-medium">Località</p>
+        <p class="text-sm text-muted-foreground">Milano, Italia</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Social links -->
+  <div class="flex gap-4 mt-8">
+    <a href="#" class="w-10 h-10 rounded-full bg-muted flex items-center justify-center hover:bg-muted/80 transition-colors">
+      <ng-icon hlm size="sm" name="lucideLinkedin" />
+    </a>
+    <a href="#" class="w-10 h-10 rounded-full bg-muted flex items-center justify-center hover:bg-muted/80 transition-colors">
+      <ng-icon hlm size="sm" name="lucideGithub" />
+    </a>
+    <a href="#" class="w-10 h-10 rounded-full bg-muted flex items-center justify-center hover:bg-muted/80 transition-colors">
+      <ng-icon hlm size="sm" name="lucideInstagram" />
+    </a>
+  </div>
+</div>
