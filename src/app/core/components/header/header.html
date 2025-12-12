@@ -1,34 +1,56 @@
-<nav class="container mx-auto flex h-16 items-center justify-between px-8 backdrop-blur bg-background/95 supports-[backdrop-filter]:bg-background/60 rounded-lg border">
+<nav
+  class="container mx-auto flex h-16 items-center justify-between px-8 backdrop-blur bg-background/95 supports-[backdrop-filter]:bg-background/60 rounded-lg border"
+>
   <h1 class="text-xl font-bold">Portfolio</h1>
 
   <ul class="flex items-center gap-6">
     <li>
-      <button hlmBtn variant="ghost" (click)="scrollToSection('about')"
-              class="cursor-pointer">
+      <button
+        hlmBtn
+        class="cursor-pointer min-w-[105px] transition-all"
+        [variant]="activeSection() === 'about' ? 'outline' : 'ghost'"
+        (click)="scrollToSection('about')"
+      >
         Chi sono
       </button>
     </li>
     <li>
-      <button hlmBtn variant="ghost" (click)="scrollToSection('experience')"
-              class="cursor-pointer">
+      <button
+        hlmBtn
+        class="cursor-pointer min-w-[105px] transition-all"
+        [variant]="activeSection() === 'experience' ? 'outline' : 'ghost'"
+        (click)="scrollToSection('experience')"
+      >
         Esperienza
       </button>
     </li>
     <li>
-      <button hlmBtn variant="ghost" (click)="scrollToSection('skills')"
-              class="cursor-pointer">
+      <button
+        hlmBtn
+        class="cursor-pointer min-w-[120px] transition-all"
+        [variant]="activeSection() === 'skills' ? 'outline' : 'ghost'"
+        (click)="scrollToSection('skills')"
+      >
         Competenze
       </button>
     </li>
     <li>
-      <button hlmBtn variant="ghost" (click)="scrollToSection('projects')"
-              class="cursor-pointer">
+      <button
+        hlmBtn
+        class="cursor-pointer min-w-[105px] transition-all"
+        [variant]="activeSection() === 'projects' ? 'outline' : 'ghost'"
+        (click)="scrollToSection('projects')"
+      >
         Progetti
       </button>
     </li>
     <li>
-      <button hlmBtn variant="ghost" (click)="scrollToSection('contact')"
-              class="cursor-pointer">
+      <button
+        hlmBtn
+        class="cursor-pointer min-w-[105px] transition-all"
+        [variant]="activeSection() === 'contact' ? 'outline' : 'ghost'"
+        (click)="scrollToSection('contact')"
+      >
         Contatti
       </button>
     </li>
