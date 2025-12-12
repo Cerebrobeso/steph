@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr": "node dist/steph/server/server.mjs",
-    "build:github": "ng build --configuration production",
+    "build:github": "ng build --configuration production --base-href /steph/",
     "lint": "ng lint"
   },
   "prettier": {
