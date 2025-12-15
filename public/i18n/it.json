@@ -1,0 +1,14 @@
+{
+	"misc": {
+		"email": "Email",
+		"location": "Località",
+		"phone": "Telefono"
+	},
+	"title": {
+		"about": "Chi sono ",
+		"contact": "Contattami",
+		"experience": "Esperienza",
+		"projects": "Progetti",
+		"skills": "Competenze"
+	}
+}

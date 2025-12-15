@@ -1,18 +1,50 @@
-import { Component, input, effect, inject } from '@angular/core';
+import { Component, input, effect, inject, model, signal } from '@angular/core';
 import { PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 
 import { HlmButton } from '@spartan-ng/helm/button';
-
+import { TranslatePipe, TranslateService } from '@ngx-translate/core';
+import { NgIcon, provideIcons } from '@ng-icons/core';
+import { flagIt, flagGb } from '@ng-icons/flag-icons';
+import { HlmDropdownMenuImports } from '@spartan-ng/helm/dropdown-menu';
+import { HlmMenubarImports } from '@spartan-ng/helm/menubar';
+import { BrnPopoverImports } from '@spartan-ng/brain/popover';
+import { HlmPopoverImports } from '@spartan-ng/helm/popover';
+import { Sidebar } from "../sidebar/sidebar";
+import { lucideCircleUserRound } from '@ng-icons/lucide';
+import { BrnTooltipImports } from '@spartan-ng/brain/tooltip';
+import { HlmTooltipImports } from '@spartan-ng/helm/tooltip';
 @Component({
   selector: 'app-header',
-  imports: [HlmButton],
+  imports: [
+    HlmButton, TranslatePipe,
+    NgIcon,
+    HlmDropdownMenuImports,
+    HlmMenubarImports,
+    HlmPopoverImports,
+    Sidebar,
+    BrnPopoverImports,
+    HlmTooltipImports,
+    BrnTooltipImports
+],
+  providers: [
+    provideIcons({
+      flagIt,
+      flagGb,
+      lucideCircleUserRound
+    }),
+  ],
   templateUrl: './header.html',
   styleUrl: './header.css',
 })
 export class Header {
-  activeSection = input('about');
+  activeSection = model('about');
+
+  currentLanguage = signal('Italiano');
+  currentFlag = signal('flagIt');
+
   private platformId = inject(PLATFORM_ID);
+  private translateService = inject(TranslateService)
 
   constructor() {
     effect(() => {
@@ -26,6 +58,7 @@ export class Header {
   scrollToSection(sectionId: string): void {
     const element = document.getElementById(sectionId);
     if (element) {
+      this.activeSection.set(sectionId);
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }
@@ -37,6 +70,17 @@ export class Header {
       if (button) {
         button.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
       }
+    }
+  }
+
+  changeLanguage(locale: string) {
+    this.translateService.use(locale);
+    if (locale === 'it') {
+      this.currentLanguage.set('Italiano');
+      this.currentFlag.set('flagIt');
+    } else {
+      this.currentLanguage.set('English');
+      this.currentFlag.set('flagGb');
     }
   }
 }

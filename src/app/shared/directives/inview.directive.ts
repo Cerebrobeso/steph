@@ -9,96 +9,95 @@ import {
   inject,
   signal,
   afterNextRender,
+  Inject,
+  DOCUMENT,
+  AfterViewInit,
 } from '@angular/core';
-
 @Directive({
   selector: '[appInView]',
   standalone: true,
 })
-export class InViewDirective implements OnInit, OnDestroy {
+export class InViewDirective implements AfterViewInit, OnDestroy {
   private elementRef = inject(ElementRef);
 
-  inViewClass = input<string>('in-view');
-  scrollContainer = input<string>('');
-  triggerOnce = input<boolean>(false);
+  inViewClass = input('in-view');
+  offsetPx = input(280);
 
   inView = output<boolean>();
-  isVisible = signal<boolean>(false);
+  isVisible = signal(false);
 
+  private isBrowser: boolean;
   private observer?: IntersectionObserver;
-  private hasTriggered = false;
 
-  constructor() {
-    // Effetto per gestire la classe
+  constructor(
+    private el: ElementRef<HTMLElement>,
+    @Inject(DOCUMENT) private document: Document,
+  ) {
+    this.isBrowser = typeof window !== 'undefined';
+
     effect(() => {
       const className = this.inViewClass();
       const visible = this.isVisible();
 
       if (visible) {
         this.elementRef.nativeElement.classList.add(className);
-      } else if (!this.triggerOnce() || !this.hasTriggered) {
+        this.inView.emit(true);
+      } else {
         this.elementRef.nativeElement.classList.remove(className);
+        this.inView.emit(false);
       }
     });
-
-    // Aspetta che il DOM sia renderizzato
     afterNextRender(() => {
       this.setupObserver();
     });
   }
 
-  ngOnInit() {
-    // L'observer viene settato in afterNextRender
-  }
+  ngAfterViewInit() {}
 
   private setupObserver() {
-    const containerSelector = this.scrollContainer();
-    let rootElement: HTMLElement | null = null;
-
-    if (containerSelector) {
-      rootElement = document.querySelector(containerSelector);
-
-      if (!rootElement) {
-        // console.error(`⚠️ Container "${containerSelector}" non trovato! Observer non configurato.`);
-        return;
-      }
-
-      // console.log(`✅ Observer configurato con container:`, rootElement);
-    } else {
-      // console.log('ℹ️ Observer configurato con viewport di default');
+    if (!this.isBrowser) {
+      return;
     }
+
+    const main = this.document.querySelector('.main-content');
+    if (!main) return;
 
     this.observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          const ratio = entry.intersectionRatio;
-          const isIntersecting = entry.isIntersecting && ratio >= 0.9;
+          const box = entry.boundingClientRect;
+          const parentBox = entry.rootBounds;
+          if (!parentBox) return;
 
-          /*console.log('📊 Intersection:', {
-            element: (entry.target as HTMLElement).id,
-            isIntersecting: entry.isIntersecting,
-            ratio: ratio.toFixed(2),
-            visible: isIntersecting
-          });*/
+          const offsetTop = box.top - parentBox.top;
 
-          this.isVisible.set(isIntersecting);
-          this.inView.emit(isIntersecting);
-
-          if (isIntersecting && this.triggerOnce() && !this.hasTriggered) {
-            this.hasTriggered = true;
-            this.observer?.disconnect();
+          if (
+            entry.isIntersecting &&
+            offsetTop <= this.offsetPx() &&
+            offsetTop >= -this.offsetPx()
+          ) {
+            console.log('entry', {
+              target: entry.target.id,
+              isIntersecting: entry.isIntersecting,
+              intersectionRatio: entry.intersectionRatio,
+              one: offsetTop + '<=' + this.offsetPx(),
+              two: offsetTop + '>=' + -this.offsetPx(),
+            });
           }
+
+          this.isVisible.set(
+            entry.isIntersecting && offsetTop <= this.offsetPx() && offsetTop >= -this.offsetPx(),
+          );
         });
       },
       {
-        root: rootElement,
-        rootMargin: '0px',
-        threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0],
+        root: main,
+        rootMargin: '16px',
+        threshold: [0.9],
       },
     );
 
-    this.observer.observe(this.elementRef.nativeElement);
-    // console.log('👀 Osservando elemento:', this.elementRef.nativeElement.id);
+    this.observer.observe(this.el.nativeElement);
   }
 
   ngOnDestroy() {

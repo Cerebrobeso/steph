@@ -16,11 +16,12 @@ import { InViewDirective } from '../../shared/directives/inview.directive';
 import {OverlayscrollbarsModule} from 'overlayscrollbars-ngx';
 import {isPlatformBrowser} from '@angular/common';
 import {OverlayScrollbars} from 'overlayscrollbars';
+import { TranslatePipe } from '@ngx-translate/core';
 
 
 @Component({
   selector: 'app-home',
-  imports: [OverlayscrollbarsModule, NgIcon, HlmIcon, Sidebar, Header, InViewDirective],
+  imports: [OverlayscrollbarsModule, NgIcon, HlmIcon, Sidebar, Header, InViewDirective, TranslatePipe],
   providers: [
     provideIcons({
       lucideMail,
@@ -55,7 +56,7 @@ export class Home implements AfterViewInit {
 
 
 
-  onSectionInView(sectionId: string, isInView: boolean) {
+  onSectionInView(sectionId: any, isInView: boolean) {
     if (isInView) {
       this.activeSection.set(sectionId);
     }

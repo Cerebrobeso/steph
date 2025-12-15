@@ -10,10 +10,12 @@ import {
   lucideGithub,
   lucideInstagram,
 } from '@ng-icons/lucide';
+import { portfolioData } from '../../../data/portfolio.data';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-sidebar',
-  imports: [NgIcon, HlmIcon],
+  imports: [NgIcon, HlmIcon, TranslatePipe],
   providers: [
     provideIcons({
       lucideMail,
@@ -27,4 +29,8 @@ import {
   templateUrl: './sidebar.html',
   styleUrl: './sidebar.css',
 })
-export class Sidebar {}
+export class Sidebar {
+  public data = portfolioData;
+
+  constructor() {}
+}
