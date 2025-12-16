@@ -37,6 +37,7 @@
           },
           "configurations": {
             "production": {
+              "outputPath": "dist/prod",
               "budgets": [
                 {
                   "type": "initial",
@@ -63,10 +64,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "steph:build:production"
+              "buildTarget": "build:production"
             },
             "development": {
-              "buildTarget": "steph:build:development"
+              "buildTarget": "build:development"
             }
           },
           "defaultConfiguration": "development"
