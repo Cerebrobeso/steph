@@ -1,24 +1,16 @@
-import {
-  ApplicationConfig,
-  inject,
-  provideAppInitializer,
-  provideBrowserGlobalErrorListeners,
-  TransferState
-} from '@angular/core';
-import { provideRouter } from '@angular/router';
+import {ApplicationConfig, provideBrowserGlobalErrorListeners, TransferState} from '@angular/core';
+import {provideRouter, withHashLocation} from '@angular/router';
 
-import { routes } from './app.routes';
-import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
-import {provideTranslateService, TranslateLoader, TranslateService} from '@ngx-translate/core';
-import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
+import {routes} from './app.routes';
+import {provideClientHydration, withEventReplay} from '@angular/platform-browser';
+import {provideTranslateService, TranslateLoader} from '@ngx-translate/core';
 import {HttpClient, provideHttpClient, withFetch} from '@angular/common/http';
-import {TranslateServerLoader, translateServerLoaderFactory} from './shared/services/translate-server.loader';
 import {translateBrowserLoaderFactory} from './shared/services/translate-client.loader';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
-    provideRouter(routes),
+    provideRouter(routes, withHashLocation()),
     provideClientHydration(withEventReplay()),
     provideHttpClient(withFetch()),
     provideTranslateService({
