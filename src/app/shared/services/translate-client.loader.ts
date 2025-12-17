@@ -1,7 +1,6 @@
-// translate-browser.loader.ts
 import { TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { makeStateKey, StateKey, TransferState } from '@angular/core'; // ✓ Corretto
+import { makeStateKey, StateKey, TransferState } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -9,7 +8,7 @@ export class TranslateBrowserLoader implements TranslateLoader {
   constructor(
     private http: HttpClient,
     private transferState: TransferState,
-    private prefix = '/assets/i18n/',
+    private prefix = './i18n/',
     private suffix = '.json'
   ) {}
 
