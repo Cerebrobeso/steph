@@ -29,7 +29,7 @@ jobs:
         run: npm run build:github
 
       - name: Copy index.html to 404.html
-        run: cp dist/prod/browser/index.html dist/prod/browser/404.html
+        run: cp dist/steph/browser/index.html dist/steph/browser/404.html
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
