@@ -1,54 +1,82 @@
 export const portfolioData = {
+
   personal: {
     name: 'Mario Rossi',
     title: 'Full Stack Developer',
-    email: 'mario.rossi@professional.com', // Email pubblica professionale
-    phone: '+39 123 456 7890', // Numero business
-    location: 'Milano, Italia',
+    email: 'mario.rossi@professional.com',
+    phone: '+39 123 456 7890',
+    location: {
+      it: 'Milano, Italia',
+      en: ''
+    },
   },
   social: {
     linkedin: 'https://linkedin.com/in/mario-rossi',
     github: 'https://github.com/mario-rossi',
     instagram: 'https://instagram.com/mario.rossi',
   },
-  about: "Ciao! Sono Mario Rossi, uno sviluppatore full stack con oltre 5 anni di esperienza nella creazione di applicazioni web scalabili e performanti. Amo lavorare con tecnologie moderne come Angular, Node.js e MongoDB per costruire soluzioni innovative che risolvono problemi reali.",
+  about: {
+    it: `
+    <p class="text-muted-foreground">
+      Sono un Full Stack Developer con oltre 5 anni di esperienza nello sviluppo di
+      applicazioni web e mobile. Mi specializzo in Angular, TypeScript e nell'architettura
+      di soluzioni scalabili e performanti.
+    </p>
+    <p class="text-muted-foreground mt-4">
+      La mia passione per il codice pulito e le best practices mi porta costantemente ad
+      approfondire nuove tecnologie e metodologie di sviluppo.
+    </p>
+    `,
+    en: ''
+  },
   experience: [
     {
       company: 'Tech Solutions Srl',
-      role: 'Senior Full Stack Developer',
-      duration: 'Gennaio 2020 - Presente',
-      responsibilities: [
-        'Sviluppo e manutenzione di applicazioni web utilizzando Angular e Node.js.',
-        'Collaborazione con team di design e marketing per implementare nuove funzionalità.',
-        'Ottimizzazione delle performance delle applicazioni e risoluzione di bug complessi.',
-      ],
+      role: {
+        it: 'Senior Full Stack Developer',
+        en: ''
+      },
+      duration: {
+        it: '2021 - Presente',
+        en: ''
+      },
+      description: {
+        it:'Sviluppo e manutenzione di applicazioni enterprise con Angular, implementazione di architetture microservizi, mentoring del team junior.',
+        en: ''
+      }
     },
     {
-      company: 'Web Innovators Spa',
-      role: 'Full Stack Developer',
-      duration: 'Giugno 2017 - Dicembre 2019',
-      responsibilities: [
-        'Progettazione e sviluppo di API RESTful con Node.js e Express.',
-        'Implementazione di interfacce utente responsive con Angular.',
-        'Partecipazione a code review e miglioramento delle pratiche di sviluppo.',
-      ],
+      company: 'Digital Agency',
+      role: {
+        it: 'Senior Full Stack Developer',
+        en: ''
+      },
+      duration: {
+        it: '2019 - 2021',
+        en: ''
+      },
+      description: {
+        it:'Sviluppo di applicazioni web responsive e mobile-first, integrazione con API REST, ottimizzazione delle performance.',
+        en: ''
+      }
     },
   ],
-  skills: [
-    'JavaScript/TypeScript',
-    'Angular',
-    'Node.js',
-    'Express',
-  ],
+  skills: {
+    frontend: ['HTML', 'CSS', 'SCSS'],
+    backend: ['TypeScript', 'Node.js', 'Nest.js'],
+    design: ['Adobe Illustrator'],
+    other: ['Git', 'CI/CD']
+  },
   projects: [
     {
-      name: 'Project Alpha',
-      description: 'Piattaforma di e-commerce scalabile con funzionalità avanzate di gestione degli ordini e integrazione con sistemi di pagamento.',
-      link: '',
-    },
-    {
-      name: 'Project Beta',
-      description: 'Applicazione di social networking con funzionalità di messaggistica in tempo reale e condivisione di contenuti multimediali.',
+      name: {
+        it: 'Project Alpha',
+        en: ''
+      },
+      description: {
+        it: 'Piattaforma di e-commerce scalabile con funzionalità avanzate di gestione degli ordini e integrazione con sistemi di pagamento.',
+        en: ''
+      },
       link: '',
     },
   ],

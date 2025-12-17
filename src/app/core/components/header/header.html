@@ -2,6 +2,8 @@
   class="container md:mx-auto flex h-16 items-center justify-between px-8 backdrop-blur bg-background/95 supports-[backdrop-filter]:bg-background/60 rounded-lg border"
 >
   <h1 class="text-xl font-bold">Portfolio</h1>
+
+  <div class="flex items-end gap-3">
   <ul class="flex items-center gap-6 overflow-x-hidden max-w-[130px] md:max-w-full hidden md:flex">
     <li>
       <button
@@ -87,16 +89,14 @@
   <hlm-popover class="block md:hidden" align="end" side="bottom" sideOffset="8">
     <button
       class="cursor-pointer"
-      hlmTooltipTrigger
-      [hlmTooltipTrigger]="'Le mie info'"
-      aria-describedby="Le mie info"
       hlmPopoverTrigger
       hlmBtn>
       <ng-icon name="lucideCircleUserRound" hlmMenuIcon></ng-icon>
-      <span *brnTooltipContent>Le mie info</span>
+      {{'title.info'|translate}}
     </button>
     <div hlmPopoverContent *brnPopoverContent="let ctx">
       <app-sidebar></app-sidebar>
     </div>
   </hlm-popover>
+  </div>
 </nav>

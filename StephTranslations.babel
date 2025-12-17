@@ -68,7 +68,82 @@
 								</translations>
 							</concept_node>
 							<concept_node>
+								<name>message</name>
+								<description/>
+								<comment/>
+								<translations>
+									<translation>
+										<language>en-GB</language>
+										<approved>false</approved>
+									</translation>
+									<translation>
+										<language>it-IT</language>
+										<approved>false</approved>
+									</translation>
+								</translations>
+							</concept_node>
+							<concept_node>
+								<name>message-placeholder</name>
+								<description/>
+								<comment/>
+								<translations>
+									<translation>
+										<language>en-GB</language>
+										<approved>false</approved>
+									</translation>
+									<translation>
+										<language>it-IT</language>
+										<approved>false</approved>
+									</translation>
+								</translations>
+							</concept_node>
+							<concept_node>
+								<name>name</name>
+								<description/>
+								<comment/>
+								<translations>
+									<translation>
+										<language>en-GB</language>
+										<approved>false</approved>
+									</translation>
+									<translation>
+										<language>it-IT</language>
+										<approved>false</approved>
+									</translation>
+								</translations>
+							</concept_node>
+							<concept_node>
+								<name>name-placeholder</name>
+								<description/>
+								<comment/>
+								<translations>
+									<translation>
+										<language>en-GB</language>
+										<approved>false</approved>
+									</translation>
+									<translation>
+										<language>it-IT</language>
+										<approved>false</approved>
+									</translation>
+								</translations>
+							</concept_node>
+							<concept_node>
 								<name>phone</name>
+								<description/>
+								<comment/>
+								<translations>
+									<translation>
+										<language>en-GB</language>
+										<approved>false</approved>
+									</translation>
+									<translation>
+										<language>it-IT</language>
+										<approved>false</approved>
+									</translation>
+								</translations>
+							</concept_node>
+							<concept_node>
+								<name>send-message</name>
 								<description/>
 								<comment/>
 								<translations>
@@ -103,6 +178,21 @@
 								</translations>
 							</concept_node>
 							<concept_node>
+								<name>backend</name>
+								<description/>
+								<comment/>
+								<translations>
+									<translation>
+										<language>en-GB</language>
+										<approved>false</approved>
+									</translation>
+									<translation>
+										<language>it-IT</language>
+										<approved>false</approved>
+									</translation>
+								</translations>
+							</concept_node>
+							<concept_node>
 								<name>contact</name>
 								<description/>
 								<comment/>
@@ -118,7 +208,82 @@
 								</translations>
 							</concept_node>
 							<concept_node>
+								<name>contact-desc</name>
+								<description/>
+								<comment/>
+								<translations>
+									<translation>
+										<language>en-GB</language>
+										<approved>false</approved>
+									</translation>
+									<translation>
+										<language>it-IT</language>
+										<approved>false</approved>
+									</translation>
+								</translations>
+							</concept_node>
+							<concept_node>
+								<name>design</name>
+								<description/>
+								<comment/>
+								<translations>
+									<translation>
+										<language>en-GB</language>
+										<approved>false</approved>
+									</translation>
+									<translation>
+										<language>it-IT</language>
+										<approved>false</approved>
+									</translation>
+								</translations>
+							</concept_node>
+							<concept_node>
 								<name>experience</name>
+								<description/>
+								<comment/>
+								<translations>
+									<translation>
+										<language>en-GB</language>
+										<approved>false</approved>
+									</translation>
+									<translation>
+										<language>it-IT</language>
+										<approved>false</approved>
+									</translation>
+								</translations>
+							</concept_node>
+							<concept_node>
+								<name>frontend</name>
+								<description/>
+								<comment/>
+								<translations>
+									<translation>
+										<language>en-GB</language>
+										<approved>false</approved>
+									</translation>
+									<translation>
+										<language>it-IT</language>
+										<approved>false</approved>
+									</translation>
+								</translations>
+							</concept_node>
+							<concept_node>
+								<name>info</name>
+								<description/>
+								<comment/>
+								<translations>
+									<translation>
+										<language>en-GB</language>
+										<approved>false</approved>
+									</translation>
+									<translation>
+										<language>it-IT</language>
+										<approved>false</approved>
+									</translation>
+								</translations>
+							</concept_node>
+							<concept_node>
+								<name>other</name>
 								<description/>
 								<comment/>
 								<translations>
@@ -149,6 +314,21 @@
 							</concept_node>
 							<concept_node>
 								<name>skills</name>
+								<description/>
+								<comment/>
+								<translations>
+									<translation>
+										<language>en-GB</language>
+										<approved>false</approved>
+									</translation>
+									<translation>
+										<language>it-IT</language>
+										<approved>false</approved>
+									</translation>
+								</translations>
+							</concept_node>
+							<concept_node>
+								<name>write-me</name>
 								<description/>
 								<comment/>
 								<translations>

@@ -24,16 +24,7 @@
           <h2 class="text-3xl font-bold mb-6">
             {{ 'title.about' | translate }}
           </h2>
-          <div class="prose prose-lg dark:prose-invert max-w-none">
-            <p class="text-muted-foreground">
-              Sono un Full Stack Developer con oltre 5 anni di esperienza nello sviluppo di
-              applicazioni web e mobile. Mi specializzo in Angular, TypeScript e nell'architettura
-              di soluzioni scalabili e performanti.
-            </p>
-            <p class="text-muted-foreground mt-4">
-              La mia passione per il codice pulito e le best practices mi porta costantemente ad
-              approfondire nuove tecnologie e metodologie di sviluppo.
-            </p>
+          <div class="prose prose-lg dark:prose-invert max-w-none" [innerHTML]="portfolioData.about[language()]">
           </div>
         </section>
 
@@ -48,41 +39,29 @@
             {{ 'title.experience' | translate }}
           </h2>
           <div class="space-y-8">
-            <div class="border-l-2 border-primary pl-6">
-              <div class="flex items-center gap-2 mb-2">
-                <h3 class="text-xl font-semibold">Senior Full Stack Developer</h3>
-                <span class="text-sm text-muted-foreground">2021 - Presente</span>
+            @let experiences = portfolioData.experience;
+            @for (exp of experiences; track $index + '-exp'; let first = $first) {
+              <div class="border-l-2 border-primary pl-6"
+                   [class.border-primary]="first"
+                   [class.border-muted]="!first"
+              >
+                <div class="flex items-center gap-2 mb-2">
+                  <h3 class="text-xl font-semibold">
+                    {{ exp.role[language()] }}
+                  </h3>
+                  <span class="text-sm text-muted-foreground">
+                    {{ exp.duration[language()] }}
+                  </span>
+                </div>
+                <p class="text-sm font-medium text-muted-foreground mb-2">
+                  {{ exp.company }}
+                </p>
+                <p class="text-muted-foreground">
+                  {{ exp.description[language()] }}
+                </p>
               </div>
-              <p class="text-sm font-medium text-muted-foreground mb-2">Tech Company SRL</p>
-              <p class="text-muted-foreground">
-                Sviluppo e manutenzione di applicazioni enterprise con Angular, implementazione di
-                architetture microservizi, mentoring del team junior.
-              </p>
-            </div>
+            }
 
-            <div class="border-l-2 border-muted pl-6">
-              <div class="flex items-center gap-2 mb-2">
-                <h3 class="text-xl font-semibold">Full Stack Developer</h3>
-                <span class="text-sm text-muted-foreground">2019 - 2021</span>
-              </div>
-              <p class="text-sm font-medium text-muted-foreground mb-2">Digital Agency</p>
-              <p class="text-muted-foreground">
-                Sviluppo di applicazioni web responsive e mobile-first, integrazione con API REST,
-                ottimizzazione delle performance.
-              </p>
-            </div>
-
-            <div class="border-l-2 border-muted pl-6">
-              <div class="flex items-center gap-2 mb-2">
-                <h3 class="text-xl font-semibold">Junior Developer</h3>
-                <span class="text-sm text-muted-foreground">2018 - 2019</span>
-              </div>
-              <p class="text-sm font-medium text-muted-foreground mb-2">Startup Innovativa</p>
-              <p class="text-muted-foreground">
-                Primo approccio allo sviluppo professionale, focus su frontend con Angular e
-                sviluppo di componenti riutilizzabili.
-              </p>
-            </div>
           </div>
         </section>
 
@@ -98,38 +77,50 @@
           </h2>
           <div class="grid grid-cols-2 gap-6">
             <div class="p-6 border rounded-lg bg-card">
-              <h3 class="text-lg font-semibold mb-4">Frontend</h3>
+              <h3 class="text-lg font-semibold mb-4">{{'title.frontend'|translate}}</h3>
               <ul class="space-y-2">
-                <li class="flex items-center gap-2">
-                  <ng-icon hlm size="xs" name="lucideCircle" class="text-primary fill-primary" />
-                  <span class="text-muted-foreground">Angular 21</span>
-                </li>
-                <li class="flex items-center gap-2">
-                  <ng-icon hlm size="xs" name="lucideCircle" class="text-primary fill-primary" />
-                  <span class="text-muted-foreground">TypeScript</span>
-                </li>
-                <li class="flex items-center gap-2">
-                  <ng-icon hlm size="xs" name="lucideCircle" class="text-primary fill-primary" />
-                  <span class="text-muted-foreground">Tailwind CSS</span>
-                </li>
+                @for (skill of portfolioData.skills.frontend; track skill) {
+                  <li class="flex items-center gap-2">
+                    <ng-icon hlm size="xs" name="lucideCircle" class="text-primary fill-primary"/>
+                    <span class="text-muted-foreground">{{ skill }}</span>
+                  </li>
+                }
               </ul>
             </div>
 
             <div class="p-6 border rounded-lg bg-card">
-              <h3 class="text-lg font-semibold mb-4">Backend</h3>
+              <h3 class="text-lg font-semibold mb-4">{{'title.backend'|translate}}</h3>
               <ul class="space-y-2">
+                @for (skill of portfolioData.skills.backend; track skill) {
                 <li class="flex items-center gap-2">
-                  <ng-icon hlm size="xs" name="lucideCircle" class="text-primary fill-primary" />
-                  <span class="text-muted-foreground">Node.js</span>
+                  <ng-icon hlm size="xs" name="lucideCircle" class="text-primary fill-primary"/>
+                  <span class="text-muted-foreground">{{skill}}</span>
                 </li>
+                }
+              </ul>
+            </div>
+
+            <div class="p-6 border rounded-lg bg-card">
+              <h3 class="text-lg font-semibold mb-4">{{'title.design'|translate}}</h3>
+              <ul class="space-y-2">
+                @for (skill of portfolioData.skills.design; track skill) {
                 <li class="flex items-center gap-2">
-                  <ng-icon hlm size="xs" name="lucideCircle" class="text-primary fill-primary" />
-                  <span class="text-muted-foreground">NestJS</span>
+                  <ng-icon hlm size="xs" name="lucideCircle" class="text-primary fill-primary"/>
+                  <span class="text-muted-foreground">{{skill}}</span>
                 </li>
+                }
+              </ul>
+            </div>
+
+            <div class="p-6 border rounded-lg bg-card">
+              <h3 class="text-lg font-semibold mb-4">{{'title.other'|translate}}</h3>
+              <ul class="space-y-2">
+                @for (skill of portfolioData.skills.other; track skill) {
                 <li class="flex items-center gap-2">
-                  <ng-icon hlm size="xs" name="lucideCircle" class="text-primary fill-primary" />
-                  <span class="text-muted-foreground">PostgreSQL</span>
+                  <ng-icon hlm size="xs" name="lucideCircle" class="text-primary fill-primary"/>
+                  <span class="text-muted-foreground">{{skill}}</span>
                 </li>
+                }
               </ul>
             </div>
           </div>
@@ -153,10 +144,10 @@
               </p>
               <div class="flex gap-2">
                 <span class="px-3 py-1 text-xs rounded-full bg-primary/10 text-primary"
-                  >Angular</span
+                >Angular</span
                 >
                 <span class="px-3 py-1 text-xs rounded-full bg-primary/10 text-primary"
-                  >Stripe</span
+                >Stripe</span
                 >
               </div>
             </div>
@@ -169,7 +160,7 @@
               <div class="flex gap-2">
                 <span class="px-3 py-1 text-xs rounded-full bg-primary/10 text-primary">Ionic</span>
                 <span class="px-3 py-1 text-xs rounded-full bg-primary/10 text-primary"
-                  >Capacitor</span
+                >Capacitor</span
                 >
               </div>
             </div>
@@ -187,22 +178,24 @@
             {{ 'title.contact' | translate }}
           </h2>
           <p class="text-muted-foreground mb-8">
-            Sono sempre interessato a nuove opportunità e collaborazioni. Non esitare a contattarmi!
+            {{'title.contact-desc'|translate}}
           </p>
 
           <div class="w-full">
-            <h3 class="text-lg font-semibold mb-4">Scrivimi</h3>
+            <h3 class="text-lg font-semibold mb-4">
+              {{'title.write-me'|translate}}
+            </h3>
             <form class="space-y-4">
               <div>
-                <label class="block text-sm font-medium mb-2">Nome</label>
+                <label class="block text-sm font-medium mb-2">{{'misc.name'|translate}}</label>
                 <input
                   type="text"
                   class="w-full px-4 py-2 border rounded-md bg-background"
-                  placeholder="Il tuo nome"
+                  [placeholder]="'misc.name-placeholder'|translate"
                 />
               </div>
               <div>
-                <label class="block text-sm font-medium mb-2">Email</label>
+                <label class="block text-sm font-medium mb-2">{{'misc.email'|translate}}</label>
                 <input
                   type="email"
                   class="w-full px-4 py-2 border rounded-md bg-background"
@@ -210,18 +203,18 @@
                 />
               </div>
               <div>
-                <label class="block text-sm font-medium mb-2">Messaggio</label>
+                <label class="block text-sm font-medium mb-2">{{'misc.message'|translate}}</label>
                 <textarea
                   rows="4"
                   class="w-full px-4 py-2 border rounded-md bg-background"
-                  placeholder="Il tuo messaggio..."
+                  [placeholder]="'misc.message-placeholder'|translate"
                 ></textarea>
               </div>
               <button
                 type="submit"
                 class="flex ml-auto px-6 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors"
               >
-                Invia Messaggio
+                {{'misc.send-message'|translate}}
               </button>
             </form>
           </div>

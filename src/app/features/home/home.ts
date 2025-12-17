@@ -1,27 +1,19 @@
-import {AfterViewInit, Component, inject, PLATFORM_ID, signal} from '@angular/core';
-import { HlmSidebarImports } from '@spartan-ng/helm/sidebar';
-import { NgIcon, provideIcons } from '@ng-icons/core';
-import {
-  lucideMail,
-  lucidePhone,
-  lucideMapPin,
-  lucideLinkedin,
-  lucideGithub,
-  lucideCircle,
-} from '@ng-icons/lucide';
-import { HlmIcon } from '@spartan-ng/helm/icon';
-import { Sidebar } from '../../core/components/sidebar/sidebar';
-import { Header } from '../../core/components/header/header';
-import { InViewDirective } from '../../shared/directives/inview.directive';
-import {OverlayscrollbarsModule} from 'overlayscrollbars-ngx';
-import {isPlatformBrowser} from '@angular/common';
-import {OverlayScrollbars} from 'overlayscrollbars';
-import { TranslatePipe } from '@ngx-translate/core';
+import {Component, effect, inject, signal} from '@angular/core';
+import {NgIcon, provideIcons} from '@ng-icons/core';
+import {lucideCircle, lucideGithub, lucideLinkedin, lucideMail, lucideMapPin, lucidePhone,} from '@ng-icons/lucide';
+import {HlmIcon} from '@spartan-ng/helm/icon';
+import {Sidebar} from '../../core/components/sidebar/sidebar';
+import {Header} from '../../core/components/header/header';
+import {InViewDirective} from '../../shared/directives/inview.directive';
+import {TranslatePipe, TranslateService} from '@ngx-translate/core';
+import {map} from 'rxjs';
+import {toSignal} from '@angular/core/rxjs-interop';
+import {portfolioData} from '../../data/portfolio.data';
 
 
 @Component({
   selector: 'app-home',
-  imports: [OverlayscrollbarsModule, NgIcon, HlmIcon, Sidebar, Header, InViewDirective, TranslatePipe],
+  imports: [NgIcon, HlmIcon, Sidebar, Header, InViewDirective, TranslatePipe],
   providers: [
     provideIcons({
       lucideMail,
@@ -35,25 +27,24 @@ import { TranslatePipe } from '@ngx-translate/core';
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
-export class Home implements AfterViewInit {
+export class Home {
+  private translateService = inject(TranslateService);
+
   activeSection = signal<string>('about');
-  private platformId = inject(PLATFORM_ID);
-
-  ngAfterViewInit() {
-    if (isPlatformBrowser(this.platformId)) {
-      // Inizializza OverlayScrollbars solo nel browser
-      OverlayScrollbars(document.body, {
-        scrollbars: {
-          autoHide: 'move',
-          theme: 'os-theme-dark',
-        }
-      });
-
+  language = toSignal(
+    this.translateService.onLangChange.pipe<"it" | "en">(
+      map(event => event.lang as keyof { it: string; en: string; })
+    ),
+    {
+      initialValue: 'it' as keyof { it: string; en: string; },
     }
+  );
+
+  constructor() {
+    effect(() => {
+      console.log(this.language())
+    });
   }
-
-  constructor() {}
-
 
 
   onSectionInView(sectionId: any, isInView: boolean) {
@@ -61,4 +52,6 @@ export class Home implements AfterViewInit {
       this.activeSection.set(sectionId);
     }
   }
+
+  protected readonly portfolioData = portfolioData;
 }

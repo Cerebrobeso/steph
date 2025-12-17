@@ -3,13 +3,25 @@
 		"change-language": "Cambia lingua",
 		"email": "Email",
 		"location": "Località",
-		"phone": "Telefono"
+		"message": "Messaggio",
+		"message-placeholder": "Il tuo messaggio...",
+		"name": "Nome",
+		"name-placeholder": "Il tuo nome",
+		"phone": "Telefono",
+		"send-message": "Invia messaggio"
 	},
 	"title": {
 		"about": "Chi sono ",
+		"backend": "Backend",
 		"contact": "Contattami",
+		"contact-desc": "Sono sempre interessato a nuove opportunità e collaborazioni. Non esitare a contattarmi!",
+		"design": "Design",
 		"experience": "Esperienza",
+		"frontend": "Frontend",
+		"info": "Info",
+		"other": "Altre",
 		"projects": "Progetti",
-		"skills": "Competenze"
+		"skills": "Competenze",
+		"write-me": "Scrivimi"
 	}
 }
