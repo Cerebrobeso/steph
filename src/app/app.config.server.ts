@@ -10,6 +10,7 @@ import {translateServerLoaderFactory} from './shared/services/translate-server.l
 const serverConfig: ApplicationConfig = {
   providers: [
     provideServerRendering(withRoutes(serverRoutes)),
+    provideHttpClient(),
     provideTranslateService({
       loader: {
         provide: TranslateLoader,
