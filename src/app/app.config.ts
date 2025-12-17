@@ -22,6 +22,5 @@ export const appConfig: ApplicationConfig = {
       fallbackLang: 'it',
       lang: 'it',
     }),
-
   ],
 };
