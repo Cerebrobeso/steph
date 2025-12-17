@@ -1,8 +1,7 @@
-import { TranslateLoader } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { makeStateKey, StateKey, TransferState } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import {TranslateLoader} from '@ngx-translate/core';
+import {makeStateKey, StateKey, TransferState} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
 
 export class TranslateBrowserLoader implements TranslateLoader {
   constructor(
@@ -10,7 +9,8 @@ export class TranslateBrowserLoader implements TranslateLoader {
     private transferState: TransferState,
     private prefix = './i18n/',
     private suffix = '.json'
-  ) {}
+  ) {
+  }
 
   getTranslation(lang: string): Observable<any> {
     const key: StateKey<any> = makeStateKey<any>('transfer-translate-' + lang);
@@ -22,10 +22,11 @@ export class TranslateBrowserLoader implements TranslateLoader {
         observer.complete();
       });
     }
-    return new TranslateHttpLoader()
-      .getTranslation(lang);
+    const url = `${this.prefix}${lang}${this.suffix}`;
+    return this.http.get<any>(url);
   }
 }
+
 export function translateBrowserLoaderFactory(
   httpClient: HttpClient,
   transferState: TransferState
