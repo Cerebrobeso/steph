@@ -59,7 +59,7 @@ export class InViewDirective implements AfterViewInit, OnDestroy {
       return;
     }
 
-    const main = this.document.querySelector('.main-content');
+    const main = this.document.querySelector('html');
     if (!main) return;
 
     this.observer = new IntersectionObserver(
@@ -71,7 +71,7 @@ export class InViewDirective implements AfterViewInit, OnDestroy {
 
           const offsetTop = box.top - parentBox.top;
 
-          if (
+          /*if (
             entry.isIntersecting &&
             offsetTop <= this.offsetPx() &&
             offsetTop >= -this.offsetPx()
@@ -83,7 +83,7 @@ export class InViewDirective implements AfterViewInit, OnDestroy {
               one: offsetTop + '<=' + this.offsetPx(),
               two: offsetTop + '>=' + -this.offsetPx(),
             });
-          }
+          }*/
 
           this.isVisible.set(
             entry.isIntersecting && offsetTop <= this.offsetPx() && offsetTop >= -this.offsetPx(),
@@ -91,9 +91,9 @@ export class InViewDirective implements AfterViewInit, OnDestroy {
         });
       },
       {
-        root: main,
-        rootMargin: '16px',
-        threshold: [0.9],
+        root:  this.document,
+        rootMargin: '-120px',
+        threshold: [0.6, 0.7, 0.8, 0.9],
       },
     );
 

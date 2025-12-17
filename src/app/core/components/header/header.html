@@ -59,44 +59,44 @@
       </button>
     </li>
   </ul>
-   <button hlmBtn variant="outline"
-   
-         [hlmTooltipTrigger]="'Cambia lingua'" 
-        aria-describedby="Cambia lingua"
-   [hlmMenubarTrigger]="languageMenu">
-      <ng-icon [name]="currentFlag()" hlmMenuIcon />
-      {{ currentLanguage() }}
-    </button>
-    
-    <ng-template #languageMenu>
-      <hlm-dropdown-menu class="w-40">
-        <button 
-        class="cursor-pointer"
-         hlmDropdownMenuItem (triggered)="changeLanguage('en')">
-          <ng-icon name="flagGb" hlmMenuIcon />
-          English
-        </button>
-        <button hlmDropdownMenuItem (triggered)="changeLanguage('it')">
-          <ng-icon name="flagIt" hlmMenuIcon />
-          Italiano
-        </button>
-      </hlm-dropdown-menu>
-    </ng-template>
+  <button hlmBtn variant="outline"
+          class="cursor-pointer"
+          [hlmTooltipTrigger]="'misc.change-language' | translate"
+          aria-describedby="Cambia lingua"
+          [hlmMenubarTrigger]="languageMenu">
+    <ng-icon [name]="currentFlag()" hlmMenuIcon/>
+    {{ currentLanguage() }}
+  </button>
 
-
-    <hlm-popover class="block md:hidden" align="end" side="bottom" sideOffset="8">
+  <ng-template #languageMenu>
+    <hlm-dropdown-menu class="w-40">
       <button
         class="cursor-pointer"
-        hlmTooltipTrigger 
-        [hlmTooltipTrigger]="'Le mie info'"
-        aria-describedby="Le mie info"
-         hlmPopoverTrigger 
-         hlmBtn>
-        <ng-icon name="lucideCircleUserRound" hlmMenuIcon></ng-icon>
-        <span *brnTooltipContent>Le mie info</span>
+        hlmDropdownMenuItem (triggered)="changeLanguage('en')">
+        <ng-icon name="flagGb" hlmMenuIcon/>
+        English
       </button>
-      <div hlmPopoverContent *brnPopoverContent="let ctx">
-        <app-sidebar></app-sidebar>
-      </div>
-    </hlm-popover>
+      <button hlmDropdownMenuItem (triggered)="changeLanguage('it')">
+        <ng-icon name="flagIt" hlmMenuIcon/>
+        Italiano
+      </button>
+    </hlm-dropdown-menu>
+  </ng-template>
+
+
+  <hlm-popover class="block md:hidden" align="end" side="bottom" sideOffset="8">
+    <button
+      class="cursor-pointer"
+      hlmTooltipTrigger
+      [hlmTooltipTrigger]="'Le mie info'"
+      aria-describedby="Le mie info"
+      hlmPopoverTrigger
+      hlmBtn>
+      <ng-icon name="lucideCircleUserRound" hlmMenuIcon></ng-icon>
+      <span *brnTooltipContent>Le mie info</span>
+    </button>
+    <div hlmPopoverContent *brnPopoverContent="let ctx">
+      <app-sidebar></app-sidebar>
+    </div>
+  </hlm-popover>
 </nav>

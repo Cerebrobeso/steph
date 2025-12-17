@@ -59,7 +59,10 @@ export class Header {
     const element = document.getElementById(sectionId);
     if (element) {
       this.activeSection.set(sectionId);
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const yOffset = -112;
+      const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
+
+      window.scrollTo({top: y, behavior: 'smooth'});
     }
   }
 

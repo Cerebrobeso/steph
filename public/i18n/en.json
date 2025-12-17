@@ -1,14 +1,15 @@
 {
 	"misc": {
-		"email": "",
-		"location": "",
-		"phone": ""
+		"change-language": "Change Language",
+		"email": "E-Mail",
+		"location": "Location",
+		"phone": "Telephone"
 	},
 	"title": {
-		"about": "",
-		"contact": "",
-		"experience": "",
-		"projects": "",
-		"skills": ""
+		"about": "About",
+		"contact": "Contact me",
+		"experience": "Experience",
+		"projects": "Projects",
+		"skills": "Skills"
 	}
 }

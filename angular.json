@@ -70,10 +70,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "build:production"
+              "buildTarget": "steph:build:production"
             },
             "development": {
-              "buildTarget": "build:development"
+              "buildTarget": "steph:build:development"
             }
           },
           "defaultConfiguration": "development"
