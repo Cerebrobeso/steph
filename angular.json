@@ -37,7 +37,7 @@
           },
           "configurations": {
             "production": {
-              "baseHref": "/steph/",
+              "baseHref": "/steph/browser",
               "budgets": [
                 {
                   "type": "initial",
