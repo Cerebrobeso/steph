@@ -20,7 +20,14 @@
       <ng-icon hlm size="sm" name="lucideMail" class="mt-0.5 text-muted-foreground" />
       <div>
         <p class="text-sm font-medium">{{ 'misc.email' | translate }}</p>
-        <p class="text-sm text-muted-foreground">{{ data.personal.email }}</p>
+        <p class="text-sm text-muted-foreground">{{ data.personal.email }}
+          <button hlmBtn size="icon" variant="ghost" class="size-2 ml-2"
+                  [hlmTooltipTrigger]="'misc.copy-email' | translate"
+                  [cdkCopyToClipboard]="data.personal.email"
+                  (cdkCopyToClipboardCopied)="onCopied($event)"
+          >
+            <ng-icon hlm size="sm" name="lucideCopy" />
+          </button></p>
       </div>
     </div>
 
@@ -41,11 +48,22 @@
     </div>
   </div>
 
-  <!-- Social links -->
   <div class="flex gap-4 mt-8">
+  <!-- Social links -->
+    @if (data.personal.email) {
+      <a
+        [href]="'mailto:' + data.personal.email"
+        [hlmTooltipTrigger]="'misc.send-emil' | translate"
+        target="_blank"
+        class="w-10 h-10 rounded-full bg-muted flex items-center justify-center hover:bg-muted/80 transition-colors"
+      >
+        <ng-icon hlm size="sm" name="lucideSend" />
+      </a>
+    }
     @if (data.social.linkedin) {
       <a
         [href]="data.social.linkedin"
+        [hlmTooltipTrigger]="'misc.open-linkedin' | translate"
         target="_blank"
         class="w-10 h-10 rounded-full bg-muted flex items-center justify-center hover:bg-muted/80 transition-colors"
       >
@@ -55,6 +73,7 @@
     @if (data.social.github) {
       <a
         [href]="data.social.github"
+        [hlmTooltipTrigger]="'misc.open-github' | translate"
         target="_blank"
         class="w-10 h-10 rounded-full bg-muted flex items-center justify-center hover:bg-muted/80 transition-colors"
       >
@@ -64,6 +83,7 @@
     @if (data.social.instagram) {
       <a
         [href]="data.social.instagram"
+        [hlmTooltipTrigger]="'misc.open-instagram' | translate"
         target="_blank"
         class="w-10 h-10 rounded-full bg-muted flex items-center justify-center hover:bg-muted/80 transition-colors"
       >

@@ -3,6 +3,8 @@
 		"advanced": "Advanced",
 		"base": "Base",
 		"change-language": "Change Language",
+		"copied": "",
+		"copy-email": "Copy email",
 		"email": "E-Mail",
 		"location": "Location",
 		"medium": "Medium",
@@ -10,7 +12,11 @@
 		"message-placeholder": "Your message...",
 		"name": "Name",
 		"name-placeholder": "Your name",
+		"open-github": "Open Github",
+		"open-instagram": "Open Instagram",
+		"open-linkedin": "Open Linkedin",
 		"phone": "Telephone",
+		"send-emil": "Send me an email",
 		"send-message": ""
 	},
 	"title": {

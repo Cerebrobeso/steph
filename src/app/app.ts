@@ -4,10 +4,11 @@ import { TranslateService } from '@ngx-translate/core';
 import {SeoService} from './shared/services/seo.service';
 import {jsonLd, seoData} from './data/seo.data';
 import {JsonLdService} from './shared/services/json-ld.service';
+import { HlmToaster } from '@spartan-ng/helm/sonner';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, HlmToaster],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
@@ -26,7 +27,6 @@ export class App {
     this.translate.use('it');
 
     this.seo.setMetaTags(this.seoData);
-    this.jsonLd.insertSchema(this.jsonLdData)
-
+    this.jsonLd.insertSchema(this.jsonLdData);
   }
 }
