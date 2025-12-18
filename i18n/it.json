@@ -1,8 +1,11 @@
 {
 	"misc": {
+		"advanced": "Avanzato",
+		"base": "Base",
 		"change-language": "Cambia lingua",
 		"email": "Email",
 		"location": "Località",
+		"medium": "Medio",
 		"message": "Messaggio",
 		"message-placeholder": "Il tuo messaggio...",
 		"name": "Nome",
