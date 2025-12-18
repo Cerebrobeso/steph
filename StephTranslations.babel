@@ -23,6 +23,36 @@
 						<name>misc</name>
 						<children>
 							<concept_node>
+								<name>advanced</name>
+								<description/>
+								<comment/>
+								<translations>
+									<translation>
+										<language>en-GB</language>
+										<approved>false</approved>
+									</translation>
+									<translation>
+										<language>it-IT</language>
+										<approved>false</approved>
+									</translation>
+								</translations>
+							</concept_node>
+							<concept_node>
+								<name>base</name>
+								<description/>
+								<comment/>
+								<translations>
+									<translation>
+										<language>en-GB</language>
+										<approved>false</approved>
+									</translation>
+									<translation>
+										<language>it-IT</language>
+										<approved>false</approved>
+									</translation>
+								</translations>
+							</concept_node>
+							<concept_node>
 								<name>change-language</name>
 								<description/>
 								<comment/>
@@ -54,6 +84,21 @@
 							</concept_node>
 							<concept_node>
 								<name>location</name>
+								<description/>
+								<comment/>
+								<translations>
+									<translation>
+										<language>en-GB</language>
+										<approved>false</approved>
+									</translation>
+									<translation>
+										<language>it-IT</language>
+										<approved>false</approved>
+									</translation>
+								</translations>
+							</concept_node>
+							<concept_node>
+								<name>medium</name>
 								<description/>
 								<comment/>
 								<translations>
