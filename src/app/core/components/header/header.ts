@@ -1,38 +1,43 @@
-import { Component, input, effect, inject, model, signal } from '@angular/core';
-import { PLATFORM_ID } from '@angular/core';
+import { Component, effect, inject, model, PLATFORM_ID, signal } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 
 import { HlmButton } from '@spartan-ng/helm/button';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { NgIcon, provideIcons } from '@ng-icons/core';
-import { flagIt, flagGb } from '@ng-icons/flag-icons';
+import { flagGb, flagIt } from '@ng-icons/flag-icons';
 import { HlmDropdownMenuImports } from '@spartan-ng/helm/dropdown-menu';
 import { HlmMenubarImports } from '@spartan-ng/helm/menubar';
-import {BrnPopoverContent, BrnPopoverImports} from '@spartan-ng/brain/popover';
-import { HlmPopoverImports } from '@spartan-ng/helm/popover';
-import { Sidebar } from "../sidebar/sidebar";
+import { BrnPopoverImports } from '@spartan-ng/brain/popover';
+import { Sidebar } from '../sidebar/sidebar';
 import { lucideCircleUserRound } from '@ng-icons/lucide';
 import { BrnTooltipImports } from '@spartan-ng/brain/tooltip';
 import { HlmTooltipImports } from '@spartan-ng/helm/tooltip';
-import {RouterLink, RouterLinkActive} from '@angular/router';
+import { RouterLink, RouterLinkActive } from '@angular/router';
+import { HlmSheetImports } from '@spartan-ng/helm/sheet';
+import { BrnSheetContent } from '@spartan-ng/brain/sheet';
+
 @Component({
   selector: 'app-header',
   imports: [
-    HlmButton, TranslatePipe,
+    HlmButton,
+    TranslatePipe,
     NgIcon,
     HlmDropdownMenuImports,
     HlmMenubarImports,
-    HlmPopoverImports,
     Sidebar,
     BrnPopoverImports,
     HlmTooltipImports,
-    BrnTooltipImports, BrnPopoverContent, RouterLink, RouterLinkActive
+    BrnTooltipImports,
+    RouterLink,
+    RouterLinkActive,
+    HlmSheetImports,
+    BrnSheetContent,
   ],
   providers: [
     provideIcons({
       flagIt,
       flagGb,
-      lucideCircleUserRound
+      lucideCircleUserRound,
     }),
   ],
   templateUrl: './header.html',
@@ -45,7 +50,7 @@ export class Header {
   currentFlag = signal('flagIt');
 
   private platformId = inject(PLATFORM_ID);
-  private translateService = inject(TranslateService)
+  private translateService = inject(TranslateService);
 
   constructor() {
     effect(() => {
@@ -62,15 +67,17 @@ export class Header {
       const yOffset = -112;
       const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
 
-      window.scrollTo({top: y, behavior: 'smooth'});
+      window.scrollTo({ top: y, behavior: 'smooth' });
       setTimeout(() => {
-        document.querySelectorAll('.main-content section').forEach(section => section.classList.remove('in-view'));
-      }, 100)
+        document
+          .querySelectorAll('.main-content section')
+          .forEach((section) => section.classList.remove('in-view'));
+      }, 100);
 
       setTimeout(() => {
         this.activeSection.set(sectionId);
         element.classList.add('in-view');
-      }, 100)
+      }, 100);
     }
   }
 

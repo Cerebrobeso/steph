@@ -96,18 +96,15 @@
       </hlm-dropdown-menu>
     </ng-template>
 
-
-    <hlm-popover align="end" class="block lg:hidden" side="bottom" sideOffset="8">
-      <button
-        class="cursor-pointer"
-        hlmBtn
-        hlmPopoverTrigger>
+    <hlm-sheet side="right" class="block md:hidden">
+      <button class="cursor-pointer" hlmBtn hlmSheetTrigger>
         <ng-icon hlmMenuIcon name="lucideCircleUserRound"></ng-icon>
-        {{ 'title.info'|translate }}
       </button>
-      <div *brnPopoverContent="let ctx" hlmPopoverContent class="min-w-[320px] md:min-w-100">
-        <app-sidebar></app-sidebar>
-      </div>
-    </hlm-popover>
+      <hlm-sheet-content *brnSheetContent="let ctx">
+        <div class="grid flex-1 auto-rows-min gap-6 px-4">
+          <app-sidebar/>
+        </div>
+      </hlm-sheet-content>
+    </hlm-sheet>
   </div>
 </nav>

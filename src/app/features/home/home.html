@@ -1,18 +1,18 @@
 <div class="container p-0 flex flex-col">
   <!-- Header full-width -->
-  <header class="lg:w-full h-16 lg:mt-4 lg:mb-8 z-999 sticky top-4 mx-3 lg:mx-0">
+  <header class="lg:w-full h-16 lg:mt-4 lg:mb-8 z-999 fixed lg:sticky top-4 mx-3 lg:mx-0" style="right: 20px; left: 20px;">
     <app-header [(activeSection)]="activeSection"></app-header>
   </header>
 
   <!-- Container per sidebar e contenuto -->
   <div class="flex">
     <!-- Sidebar -->
-    <aside class="hidden lg:block w-80 sticky top-[112px] self-start max-h-screen overflow-y-auto">
+    <aside class="hidden lg:block w-80 sticky lg:top-[112px] self-start max-h-screen overflow-y-auto">
       <app-sidebar></app-sidebar>
     </aside>
 
     <!-- Contenuto principale scrollabile -->
-    <main class="flex-1 main-content pt-16 lg:pt-0 lg:mb-[50vh]">
+    <main class="flex-1 main-content pt-[110px] lg:pt-0 lg:mb-[50vh]">
       <div class="p-3 lg:p-0 lg:pl-8">
         <!-- Chi Sono -->
         <section

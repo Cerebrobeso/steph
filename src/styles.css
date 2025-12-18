@@ -90,6 +90,10 @@
     @apply bg-background text-foreground;
   }
 
+  button {
+    cursor: pointer;
+  }
+
   .os-theme-dark{
     --os-handle-bg: rgba(255, 255, 255, 0.44);
     --os-handle-bg-hover: rgba(255, 255, 255, 0.55);
