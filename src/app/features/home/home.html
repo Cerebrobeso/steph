@@ -1,39 +1,39 @@
 <div class="container p-0 flex flex-col">
   <!-- Header full-width -->
-  <header class="md:w-full h-16 md:mt-4 md:mb-8 z-999 sticky top-4 mx-3 md:mx-0">
+  <header class="lg:w-full h-16 lg:mt-4 lg:mb-8 z-999 sticky top-4 mx-3 lg:mx-0">
     <app-header [(activeSection)]="activeSection"></app-header>
   </header>
 
   <!-- Container per sidebar e contenuto -->
   <div class="flex">
     <!-- Sidebar -->
-    <aside class="hidden md:block w-80 sticky top-[112px] self-start max-h-screen overflow-y-auto">
+    <aside class="hidden lg:block w-80 sticky top-[112px] self-start max-h-screen overflow-y-auto">
       <app-sidebar></app-sidebar>
     </aside>
 
     <!-- Contenuto principale scrollabile -->
-    <main class="flex-1 main-content pt-[64px] md:pt-0 pb-[150px]">
-      <div class="p-3 md:p-0 md:pl-8">
+    <main class="flex-1 main-content pt-[64px] lg:pt-0 lg:mb-[50vh]">
+      <div class="p-3 lg:p-0 lg:pl-8">
         <!-- Chi Sono -->
         <section
-          id="about"
-          appInView
           (inView)="onSectionInView('about', $event)"
+          appInView
           class="min-h-80 mb-8 border rounded-lg bg-card p-8"
+          id="about"
         >
           <h2 class="text-3xl font-bold mb-6">
             {{ 'title.about' | translate }}
           </h2>
-          <div class="prose prose-lg dark:prose-invert max-w-none" [innerHTML]="portfolioData.about[language()]">
+          <div [innerHTML]="portfolioData.about[language()]" class="prose prose-lg dark:prose-invert max-w-none">
           </div>
         </section>
 
         <!-- Esperienza -->
         <section
-          id="experience"
-          appInView
           (inView)="onSectionInView('experience', $event)"
+          appInView
           class="min-h-80 mb-8 border rounded-lg bg-card p-8"
+          id="experience"
         >
           <h2 class="text-3xl font-bold mb-6">
             {{ 'title.experience' | translate }}
@@ -41,11 +41,11 @@
           <div class="space-y-8">
             @let experiences = portfolioData.experience;
             @for (exp of experiences; track $index + '-exp'; let first = $first) {
-              <div class="border-l-2 border-primary pl-6"
+              <div [class.border-muted]="!first"
                    [class.border-primary]="first"
-                   [class.border-muted]="!first"
+                   class="border-l-2 border-primary pl-6"
               >
-                <div class="flex items-center gap-2 mb-2">
+                <div class="flex items-start md:items-center gap-2 mb-2 flex-col md:flex-row justify-between">
                   <h3 class="text-xl font-semibold">
                     {{ exp.role[language()] }}
                   </h3>
@@ -67,71 +67,64 @@
 
         <!-- Competenze -->
         <section
-          id="skills"
-          appInView
           (inView)="onSectionInView('skills', $event)"
+          appInView
           class="min-h-80 mb-8 border rounded-lg bg-card p-8"
+          id="skills"
         >
-          <h2 class="text-3xl font-bold mb-6">
-            {{ 'title.skills' | translate }}
-          </h2>
-          <div class="grid grid-cols-2 gap-6">
-            <div class="p-6 border rounded-lg bg-card">
-              <h3 class="text-lg font-semibold mb-4">{{'title.frontend'|translate}}</h3>
-              <ul class="space-y-2">
-                @for (skill of portfolioData.skills.frontend; track skill) {
-                  <li class="flex items-center gap-2">
-                    <ng-icon hlm size="xs" name="lucideCircle" class="text-primary fill-primary"/>
-                    <span class="text-muted-foreground">{{ skill }}</span>
-                  </li>
-                }
-              </ul>
+          <div class="flex justify-between flex-col md:flex-row">
+            <h2 class="text-3xl font-bold mb-6">
+              {{ 'title.skills' | translate }}
+            </h2>
+            <div class="flex gap-5 md:mt-3 mb-3 md:mb-0">
+              <div>
+                <ng-icon class="text-gray-400" hlm name="lucideCircle" size="xs"/>
+                Base
+              </div>
+              <div>
+                <ng-icon class="text-blue-500 " hlm name="lucideCircle" size="xs"/>
+                Medio
+              </div>
+              <div>
+                <ng-icon class="text-purple-600" hlm name="lucideCheckCircle" size="xs"/>
+                Avanzato
+              </div>
             </div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            @for (skill of portfolioData.skills; track skill.title) {
+              <div class="p-6 border rounded-lg bg-card">
+                <h3 class="text-lg font-semibold mb-4">{{ skill.title|translate }}</h3>
+                <ul class="space-y-2">
+                  @for (item of skill.items; track item.name) {
 
-            <div class="p-6 border rounded-lg bg-card">
-              <h3 class="text-lg font-semibold mb-4">{{'title.backend'|translate}}</h3>
-              <ul class="space-y-2">
-                @for (skill of portfolioData.skills.backend; track skill) {
-                <li class="flex items-center gap-2">
-                  <ng-icon hlm size="xs" name="lucideCircle" class="text-primary fill-primary"/>
-                  <span class="text-muted-foreground">{{skill}}</span>
-                </li>
-                }
-              </ul>
-            </div>
-
-            <div class="p-6 border rounded-lg bg-card">
-              <h3 class="text-lg font-semibold mb-4">{{'title.design'|translate}}</h3>
-              <ul class="space-y-2">
-                @for (skill of portfolioData.skills.design; track skill) {
-                <li class="flex items-center gap-2">
-                  <ng-icon hlm size="xs" name="lucideCircle" class="text-primary fill-primary"/>
-                  <span class="text-muted-foreground">{{skill}}</span>
-                </li>
-                }
-              </ul>
-            </div>
-
-            <div class="p-6 border rounded-lg bg-card">
-              <h3 class="text-lg font-semibold mb-4">{{'title.other'|translate}}</h3>
-              <ul class="space-y-2">
-                @for (skill of portfolioData.skills.other; track skill) {
-                <li class="flex items-center gap-2">
-                  <ng-icon hlm size="xs" name="lucideCircle" class="text-primary fill-primary"/>
-                  <span class="text-muted-foreground">{{skill}}</span>
-                </li>
-                }
-              </ul>
-            </div>
+                    <li class="flex items-center gap-2">
+                      @switch (item.level) {
+                        @case (1) {
+                          <ng-icon class="text-gray-400" hlm name="lucideCircle" size="xs"/>
+                        }
+                        @case (2) {
+                          <ng-icon class="text-blue-500 " hlm name="lucideCircle" size="xs"/>
+                        }
+                        @case (3) {
+                          <ng-icon class="text-purple-600" hlm name="lucideCheckCircle" size="xs"/>
+                        }
+                      }
+                      <span class="text-muted-foreground">{{ item.name }}</span>
+                    </li>
+                  }
+                </ul>
+              </div>
+            }
           </div>
         </section>
 
         <!-- Progetti -->
         <section
-          id="projects"
-          appInView
           (inView)="onSectionInView('projects', $event)"
+          appInView
           class="min-h-80 mb-8 border rounded-lg bg-card p-8"
+          id="projects"
         >
           <h2 class="text-3xl font-bold mb-6">
             {{ 'title.projects' | translate }}
@@ -169,52 +162,52 @@
 
         <!-- Contatti -->
         <section
-          id="contact"
-          appInView
           (inView)="onSectionInView('contact', $event)"
+          appInView
           class="min-h-80 border rounded-lg bg-card p-8 mb-12"
+          id="contact"
         >
           <h2 class="text-3xl font-bold mb-6">
             {{ 'title.contact' | translate }}
           </h2>
           <p class="text-muted-foreground mb-8">
-            {{'title.contact-desc'|translate}}
+            {{ 'title.contact-desc'|translate }}
           </p>
 
           <div class="w-full">
             <h3 class="text-lg font-semibold mb-4">
-              {{'title.write-me'|translate}}
+              {{ 'title.write-me'|translate }}
             </h3>
             <form class="space-y-4">
               <div>
-                <label class="block text-sm font-medium mb-2">{{'misc.name'|translate}}</label>
+                <label class="block text-sm font-medium mb-2">{{ 'misc.name'|translate }}</label>
                 <input
-                  type="text"
-                  class="w-full px-4 py-2 border rounded-md bg-background"
                   [placeholder]="'misc.name-placeholder'|translate"
+                  class="w-full px-4 py-2 border rounded-md bg-background"
+                  type="text"
                 />
               </div>
               <div>
-                <label class="block text-sm font-medium mb-2">{{'misc.email'|translate}}</label>
+                <label class="block text-sm font-medium mb-2">{{ 'misc.email'|translate }}</label>
                 <input
-                  type="email"
                   class="w-full px-4 py-2 border rounded-md bg-background"
                   placeholder="tua@email.com"
+                  type="email"
                 />
               </div>
               <div>
-                <label class="block text-sm font-medium mb-2">{{'misc.message'|translate}}</label>
+                <label class="block text-sm font-medium mb-2">{{ 'misc.message'|translate }}</label>
                 <textarea
-                  rows="4"
-                  class="w-full px-4 py-2 border rounded-md bg-background"
                   [placeholder]="'misc.message-placeholder'|translate"
+                  class="w-full px-4 py-2 border rounded-md bg-background"
+                  rows="4"
                 ></textarea>
               </div>
               <button
-                type="submit"
                 class="flex ml-auto px-6 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors"
+                type="submit"
               >
-                {{'misc.send-message'|translate}}
+                {{ 'misc.send-message'|translate }}
               </button>
             </form>
           </div>

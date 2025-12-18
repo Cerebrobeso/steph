@@ -1,102 +1,113 @@
 <nav
-  class="container md:mx-auto flex h-16 items-center justify-between px-8 backdrop-blur bg-background/95 supports-[backdrop-filter]:bg-background/60 rounded-lg border"
+  class="container lg:mx-auto flex h-16 items-center justify-between px-8 backdrop-blur bg-background/95 supports-[backdrop-filter]:bg-background/60 rounded-lg border"
 >
   <h1 class="text-xl font-bold">Portfolio</h1>
 
-  <div class="flex items-end gap-3">
-  <ul class="flex items-center gap-6 overflow-x-hidden max-w-[130px] md:max-w-full hidden md:flex">
-    <li>
-      <button
-        hlmBtn
-        class="cursor-pointer min-w-[105px] transition-all"
-        [variant]="activeSection() === 'about' ? 'outline' : 'ghost'"
-        (click)="scrollToSection('about')"
-        data-section="about"
-      >
-        {{ 'title.about' | translate }}
-      </button>
-    </li>
-    <li>
-      <button
-        hlmBtn
-        class="cursor-pointer min-w-[105px] tr1ansition-all"
-        [variant]="activeSection() === 'experience' ? 'outline' : 'ghost'"
-        (click)="scrollToSection('experience')"
-        data-section="experience"
-      >
-        {{ 'title.experience' | translate }}
-      </button>
-    </li>
-    <li>
-      <button
-        hlmBtn
-        class="cursor-pointer min-w-[120px] transition-all"
-        [variant]="activeSection() === 'skills' ? 'outline' : 'ghost'"
-        (click)="scrollToSection('skills')"
-        data-section="skills"
-      >
-        {{ 'title.skills' | translate }}
-      </button>
-    </li>
-    <li>
-      <button
-        hlmBtn
-        class="cursor-pointer min-w-[105px] transition-all"
-        [variant]="activeSection() === 'projects' ? 'outline' : 'ghost'"
-        (click)="scrollToSection('projects')"
-        data-section="projects"
-      >
-        {{ 'title.projects' | translate }}
-      </button>
-    </li>
-    <li>
-      <button
-        hlmBtn
-        class="cursor-pointer min-w-[105px] transition-all"
-        [variant]="activeSection() === 'contact' ? 'outline' : 'ghost'"
-        (click)="scrollToSection('contact')"
-        data-section="contact"
-      >
-        {{ 'title.contact' | translate }}
-      </button>
-    </li>
-  </ul>
-  <button hlmBtn variant="outline"
-          class="cursor-pointer"
-          [hlmTooltipTrigger]="'misc.change-language' | translate"
-          aria-describedby="Cambia lingua"
-          [hlmMenubarTrigger]="languageMenu">
-    <ng-icon [name]="currentFlag()" hlmMenuIcon/>
-    {{ currentLanguage() }}
-  </button>
+  <div class="flex items-end gap-6">
+    <ul class="items-center gap-6 overflow-x-hidden max-w-32.5 lg:max-w-full hidden lg:flex">
+      <li>
+        <button
+          (click)="scrollToSection('about')"
+          [routerLinkActive]="'active'"
+          [routerLink]="'/'"
+          [variant]="activeSection() === 'about' ? 'outline' : 'ghost'"
+          class="cursor-pointer min-w-26.25 transition-all"
+          data-section="about"
+          fragment="about"
+          hlmBtn
+        >
+          {{ 'title.about' | translate }}
+        </button>
+      </li>
+      <li>
+        <button
+          (click)="scrollToSection('experience')"
+          [routerLink]="'/'"
+          [variant]="activeSection() === 'experience' ? 'outline' : 'ghost'"
+          class="cursor-pointer min-w-26.25 tr1ansition-all"
+          data-section="experience"
+          fragment="experience"
+          hlmBtn
+        >
+          {{ 'title.experience' | translate }}
+        </button>
+      </li>
+      <li>
+        <button
+          (click)="scrollToSection('skills')"
+          [routerLink]="'/'"
+          [variant]="activeSection() === 'skills' ? 'outline' : 'ghost'"
+          class="cursor-pointer min-w-30 transition-all"
+          data-section="skills"
+          fragment="skills"
+          hlmBtn
+        >
+          {{ 'title.skills' | translate }}
+        </button>
+      </li>
+      <li>
+        <button
+          (click)="scrollToSection('projects')"
+          [routerLink]="'/'"
+          [variant]="activeSection() === 'projects' ? 'outline' : 'ghost'"
+          class="cursor-pointer min-w-26.25 transition-all"
+          data-section="projects"
+          fragment="projects"
+          hlmBtn
+        >
+          {{ 'title.projects' | translate }}
+        </button>
+      </li>
+      <li>
+        <button
+          (click)="scrollToSection('contact')"
+          [routerLink]="'/'"
+          [variant]="activeSection() === 'contact' ? 'outline' : 'ghost'"
+          class="cursor-pointer min-w-26.25 transition-all"
+          data-section="contact"
+          fragment="contact"
+          hlmBtn
+        >
+          {{ 'title.contact' | translate }}
+        </button>
+      </li>
+    </ul>
+    <button [hlmMenubarTrigger]="languageMenu" [hlmTooltipTrigger]="'misc.change-language' | translate"
+            aria-describedby="Cambia lingua"
+            class="cursor-pointer"
+            hlmBtn
+            variant="outline">
+      <ng-icon [name]="currentFlag()" hlmMenuIcon/>
+      {{ currentLanguage() }}
+    </button>
 
-  <ng-template #languageMenu>
-    <hlm-dropdown-menu class="w-40">
+    <ng-template #languageMenu>
+      <hlm-dropdown-menu class="w-40">
+        <button
+          (triggered)="changeLanguage('en')"
+          class="cursor-pointer" hlmDropdownMenuItem>
+          <ng-icon hlmMenuIcon name="flagGb"/>
+          English
+        </button>
+        <button (triggered)="changeLanguage('it')" hlmDropdownMenuItem>
+          <ng-icon hlmMenuIcon name="flagIt"/>
+          Italiano
+        </button>
+      </hlm-dropdown-menu>
+    </ng-template>
+
+
+    <hlm-popover align="end" class="block lg:hidden" side="bottom" sideOffset="8">
       <button
         class="cursor-pointer"
-        hlmDropdownMenuItem (triggered)="changeLanguage('en')">
-        <ng-icon name="flagGb" hlmMenuIcon/>
-        English
+        hlmBtn
+        hlmPopoverTrigger>
+        <ng-icon hlmMenuIcon name="lucideCircleUserRound"></ng-icon>
+        {{ 'title.info'|translate }}
       </button>
-      <button hlmDropdownMenuItem (triggered)="changeLanguage('it')">
-        <ng-icon name="flagIt" hlmMenuIcon/>
-        Italiano
-      </button>
-    </hlm-dropdown-menu>
-  </ng-template>
-
-
-  <hlm-popover class="block md:hidden" align="end" side="bottom" sideOffset="8">
-    <button
-      class="cursor-pointer"
-      hlmPopoverTrigger
-      hlmBtn>
-      <ng-icon name="lucideCircleUserRound" hlmMenuIcon></ng-icon>
-      {{'title.info'|translate}}
-    </button>
-    <div hlmPopoverContent *brnPopoverContent="let ctx">
-      <app-sidebar></app-sidebar>
-    </div>
-  </hlm-popover>
+      <div *brnPopoverContent="let ctx" hlmPopoverContent class="min-w-[320px] md:min-w-100">
+        <app-sidebar></app-sidebar>
+      </div>
+    </hlm-popover>
   </div>
 </nav>

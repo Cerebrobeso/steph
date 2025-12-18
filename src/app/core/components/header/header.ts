@@ -8,12 +8,13 @@ import { NgIcon, provideIcons } from '@ng-icons/core';
 import { flagIt, flagGb } from '@ng-icons/flag-icons';
 import { HlmDropdownMenuImports } from '@spartan-ng/helm/dropdown-menu';
 import { HlmMenubarImports } from '@spartan-ng/helm/menubar';
-import { BrnPopoverImports } from '@spartan-ng/brain/popover';
+import {BrnPopoverContent, BrnPopoverImports} from '@spartan-ng/brain/popover';
 import { HlmPopoverImports } from '@spartan-ng/helm/popover';
 import { Sidebar } from "../sidebar/sidebar";
 import { lucideCircleUserRound } from '@ng-icons/lucide';
 import { BrnTooltipImports } from '@spartan-ng/brain/tooltip';
 import { HlmTooltipImports } from '@spartan-ng/helm/tooltip';
+import {RouterLink, RouterLinkActive} from '@angular/router';
 @Component({
   selector: 'app-header',
   imports: [
@@ -25,8 +26,8 @@ import { HlmTooltipImports } from '@spartan-ng/helm/tooltip';
     Sidebar,
     BrnPopoverImports,
     HlmTooltipImports,
-    BrnTooltipImports
-],
+    BrnTooltipImports, BrnPopoverContent, RouterLink, RouterLinkActive
+  ],
   providers: [
     provideIcons({
       flagIt,
@@ -58,11 +59,18 @@ export class Header {
   scrollToSection(sectionId: string): void {
     const element = document.getElementById(sectionId);
     if (element) {
-      this.activeSection.set(sectionId);
       const yOffset = -112;
       const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
 
       window.scrollTo({top: y, behavior: 'smooth'});
+      setTimeout(() => {
+        document.querySelectorAll('.main-content section').forEach(section => section.classList.remove('in-view'));
+      }, 100)
+
+      setTimeout(() => {
+        this.activeSection.set(sectionId);
+        element.classList.add('in-view');
+      }, 100)
     }
   }
 

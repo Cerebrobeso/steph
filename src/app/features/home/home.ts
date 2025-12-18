@@ -1,6 +1,15 @@
 import {Component, effect, inject, signal} from '@angular/core';
 import {NgIcon, provideIcons} from '@ng-icons/core';
-import {lucideCircle, lucideGithub, lucideLinkedin, lucideMail, lucideMapPin, lucidePhone,} from '@ng-icons/lucide';
+import {
+  lucideCheck,
+  lucideCheckCheck, lucideCheckCircle,
+  lucideCircle,
+  lucideGithub,
+  lucideLinkedin,
+  lucideMail,
+  lucideMapPin,
+  lucidePhone,
+} from '@ng-icons/lucide';
 import {HlmIcon} from '@spartan-ng/helm/icon';
 import {Sidebar} from '../../core/components/sidebar/sidebar';
 import {Header} from '../../core/components/header/header';
@@ -22,6 +31,9 @@ import {portfolioData} from '../../data/portfolio.data';
       lucideLinkedin,
       lucideGithub,
       lucideCircle,
+      lucideCheck,
+      lucideCheckCheck,
+      lucideCheckCircle
     }),
   ],
   templateUrl: './home.html',
@@ -40,11 +52,7 @@ export class Home {
     }
   );
 
-  constructor() {
-    effect(() => {
-      console.log(this.language())
-    });
-  }
+  constructor() {}
 
 
   onSectionInView(sectionId: any, isInView: boolean) {

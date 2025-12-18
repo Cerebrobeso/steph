@@ -36,7 +36,9 @@
                 "glob": "**/*",
                 "input": "environments",
                 "output": "environments"
-              }
+              },
+              "src/.htaccess",
+              "src/robots.txt"
             ],
             "styles": ["src/styles.css"],
             "server": "src/main.server.ts",

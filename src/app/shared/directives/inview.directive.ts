@@ -26,7 +26,7 @@ export class InViewDirective implements AfterViewInit, OnDestroy {
   inView = output<boolean>();
   isVisible = signal(false);
 
-  private isBrowser: boolean;
+  private readonly isBrowser: boolean;
   private observer?: IntersectionObserver;
 
   constructor(
