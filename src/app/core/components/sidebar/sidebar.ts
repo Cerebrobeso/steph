@@ -1,6 +1,6 @@
-import { Component, inject } from '@angular/core';
-import { NgIcon, provideIcons } from '@ng-icons/core';
-import { HlmIcon } from '@spartan-ng/helm/icon';
+import {Component, inject} from '@angular/core';
+import {NgIcon, provideIcons} from '@ng-icons/core';
+import {HlmIcon} from '@spartan-ng/helm/icon';
 import {
   lucideCopy,
   lucideGithub,
@@ -11,16 +11,14 @@ import {
   lucidePhone,
   lucideSend,
 } from '@ng-icons/lucide';
-import { portfolioData } from '../../../data/portfolio.data';
-import { TranslatePipe, TranslateService } from '@ngx-translate/core';
-import { toSignal } from '@angular/core/rxjs-interop';
-import { map } from 'rxjs';
-import { HlmButtonImports } from '@spartan-ng/helm/button';
-import { CdkCopyToClipboard } from '@angular/cdk/clipboard';
-import { HlmMenubarTrigger } from '@spartan-ng/helm/menubar';
-import { HlmTooltipImports } from '@spartan-ng/helm/tooltip';
-import { toast } from 'ngx-sonner';
-import { HlmToasterImports } from '@spartan-ng/helm/sonner';
+import {portfolioData} from '../../../data/portfolio.data';
+import {TranslatePipe, TranslateService} from '@ngx-translate/core';
+import {toSignal} from '@angular/core/rxjs-interop';
+import {map} from 'rxjs';
+import {HlmButtonImports} from '@spartan-ng/helm/button';
+import {CdkCopyToClipboard} from '@angular/cdk/clipboard';
+import {HlmTooltipImports} from '@spartan-ng/helm/tooltip';
+import {toast} from 'ngx-sonner';
 
 @Component({
   selector: 'app-sidebar',
@@ -30,9 +28,8 @@ import { HlmToasterImports } from '@spartan-ng/helm/sonner';
     TranslatePipe,
     HlmButtonImports,
     CdkCopyToClipboard,
-    HlmMenubarTrigger,
     HlmTooltipImports,
-    HlmToasterImports,
+
   ],
   providers: [
     provideIcons({
@@ -50,9 +47,8 @@ import { HlmToasterImports } from '@spartan-ng/helm/sonner';
   styleUrl: './sidebar.css',
 })
 export class Sidebar {
-  private translateService = inject(TranslateService);
   public data = portfolioData;
-
+  private translateService = inject(TranslateService);
   language = toSignal(
     this.translateService.onLangChange.pipe<'it' | 'en'>(
       map((event) => event.lang as keyof { it: string; en: string }),
@@ -61,6 +57,7 @@ export class Sidebar {
       initialValue: 'it' as keyof { it: string; en: string },
     },
   );
+
   constructor() {
     /* empty */
   }
