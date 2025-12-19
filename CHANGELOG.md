@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.0.2](https://github.com/Cerebrobeso/steph/compare/v0.0.1...v0.0.2) (2025-12-19)
+
+
+### Features
+
+* add changelog and versioning for release management ([15463e8](https://github.com/Cerebrobeso/steph/commit/15463e84fa896cb0fddbce68ed7ad1b6c057dd4d))
+* add copy and send email ([d2290d5](https://github.com/Cerebrobeso/steph/commit/d2290d5a6d5615f3c819aeb0e62fe7e65af4bb86))
+* add sheet sidebar ([d7c1f94](https://github.com/Cerebrobeso/steph/commit/d7c1f9485103d0a4b7dabeb702b63cc06e723d0d))
+* enhance header logic, improve i18n, and update portfolio data ([84de244](https://github.com/Cerebrobeso/steph/commit/84de244f3aae023325e36fe1263fba4d5f52349c))
+
+
+### Bug Fixes
+
+* adjust header style to ensure proper alignment on all screen sizes ([07806e0](https://github.com/Cerebrobeso/steph/commit/07806e0fd1810c5558184b4fe34b45563af017c0))
+* correct SEO image link path ([2d82032](https://github.com/Cerebrobeso/steph/commit/2d82032ad5c6463cebc3ff2fb0acc348bce2cd5a))
+* correct SEO image link path ([830b5a8](https://github.com/Cerebrobeso/steph/commit/830b5a8a092bbfd67c717dfccc62a909eb9a120a))
+* update SEO image link, simplify imports, and adjust sidebar structure ([1b1bf37](https://github.com/Cerebrobeso/steph/commit/1b1bf373d3f00d7e6c66bce784743c9098bf658e))
+
 ## 0.0.1 (2025-12-18)
 
 

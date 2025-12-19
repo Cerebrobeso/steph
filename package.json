@@ -1,6 +1,6 @@
 {
   "name": "steph",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "scripts": {
     "Patch release (1.0.0 --> 1.0.1)": "npm run release -- --release-as patch",
     "Minor release (1.0.0 --> 1.1.0)": "npm run release -- --release-as minor",
