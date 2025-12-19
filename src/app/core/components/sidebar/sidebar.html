@@ -16,36 +16,43 @@
 
   <div class="w-full space-y-4 mt-6">
     <!-- Info contatti -->
-    <div class="flex items-start gap-3">
-      <ng-icon hlm size="sm" name="lucideMail" class="mt-0.5 text-muted-foreground" />
-      <div>
-        <p class="text-sm font-medium">{{ 'misc.email' | translate }}</p>
-        <p class="text-sm text-muted-foreground">{{ data.personal.email }}
-          <button hlmBtn size="icon" variant="ghost" class="size-2 ml-2"
-                  [hlmTooltipTrigger]="'misc.copy-email' | translate"
-                  [cdkCopyToClipboard]="data.personal.email"
-                  (cdkCopyToClipboardCopied)="onCopied($event)"
-          >
-            <ng-icon hlm size="sm" name="lucideCopy" />
-          </button></p>
+    @if (data.personal.email) {
+      <div class="flex items-start gap-3">
+        <ng-icon hlm size="sm" name="lucideMail" class="mt-0.5 text-muted-foreground"/>
+        <div>
+          <p class="text-sm font-medium">{{ 'misc.email' | translate }}</p>
+          <p class="text-sm text-muted-foreground">{{ data.personal.email }}
+            <button hlmBtn size="icon" variant="ghost" class="size-2 ml-2"
+                    [hlmTooltipTrigger]="'misc.copy-email' | translate"
+                    [cdkCopyToClipboard]="data.personal.email"
+                    (cdkCopyToClipboardCopied)="onCopied($event)"
+            >
+              <ng-icon hlm size="sm" name="lucideCopy"/>
+            </button>
+          </p>
+        </div>
       </div>
-    </div>
+    }
 
-    <div class="flex items-start gap-3">
-      <ng-icon hlm size="sm" name="lucidePhone" class="mt-0.5 text-muted-foreground" />
-      <div>
-        <p class="text-sm font-medium">{{ 'misc.phone' | translate }}</p>
-        <p class="text-sm text-muted-foreground">{{ data.personal.phone }}</p>
+    @if (data.personal.phone) {
+      <div class="flex items-start gap-3">
+        <ng-icon hlm size="sm" name="lucidePhone" class="mt-0.5 text-muted-foreground"/>
+        <div>
+          <p class="text-sm font-medium">{{ 'misc.phone' | translate }}</p>
+          <p class="text-sm text-muted-foreground">{{ data.personal.phone }}</p>
+        </div>
       </div>
-    </div>
+    }
 
-    <div class="flex items-start gap-3">
-      <ng-icon hlm size="sm" name="lucideMapPin" class="mt-0.5 text-muted-foreground" />
-      <div>
-        <p class="text-sm font-medium">{{ 'misc.location' | translate }}</p>
-        <p class="text-sm text-muted-foreground">{{ data.personal.location[language()] }}</p>
+    @if (data.personal.location) {
+      <div class="flex items-start gap-3">
+        <ng-icon hlm size="sm" name="lucideMapPin" class="mt-0.5 text-muted-foreground"/>
+        <div>
+          <p class="text-sm font-medium">{{ 'misc.location' | translate }}</p>
+          <p class="text-sm text-muted-foreground">{{ data.personal.location[language()] }}</p>
+        </div>
       </div>
-    </div>
+    }
   </div>
 
   <div class="flex gap-4 mt-8">

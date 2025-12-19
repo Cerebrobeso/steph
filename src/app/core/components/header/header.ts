@@ -1,4 +1,4 @@
-import { Component, effect, inject, model, PLATFORM_ID, signal } from '@angular/core';
+import {afterRenderEffect, Component, effect, inject, model, PLATFORM_ID, signal} from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 
 import { HlmButton } from '@spartan-ng/helm/button';
@@ -15,6 +15,7 @@ import { HlmTooltipImports } from '@spartan-ng/helm/tooltip';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { HlmSheetImports } from '@spartan-ng/helm/sheet';
 import { BrnSheetContent } from '@spartan-ng/brain/sheet';
+import {portfolioData} from '../../../data/portfolio.data';
 
 @Component({
   selector: 'app-header',
@@ -53,6 +54,14 @@ export class Header {
   private translateService = inject(TranslateService);
 
   constructor() {
+    if (isPlatformBrowser(this.platformId)) {
+    afterRenderEffect(() => {
+      const language = this.getLanguage();
+      if (language) {
+        this.changeLanguage(language);
+      }
+    })
+      }
     effect(() => {
       if (isPlatformBrowser(this.platformId)) {
         const section = this.activeSection();
@@ -92,7 +101,10 @@ export class Header {
   }
 
   changeLanguage(locale: string) {
+    console.log(locale)
     this.translateService.use(locale);
+    console.log(this.translateService.getCurrentLang(), 'current lang')
+    this.saveLanguage(locale);
     if (locale === 'it') {
       this.currentLanguage.set('Italiano');
       this.currentFlag.set('flagIt');
@@ -101,4 +113,19 @@ export class Header {
       this.currentFlag.set('flagGb');
     }
   }
+
+  saveLanguage(lang: string): void {
+    if (isPlatformBrowser(this.platformId)) {
+      localStorage.setItem('user-language', lang);
+    }
+  }
+
+  getLanguage(): string | null {
+    if (isPlatformBrowser(this.platformId)) {
+      return localStorage.getItem('user-language');
+    }
+    return null;
+  }
+
+  protected readonly portfolioData = portfolioData;
 }

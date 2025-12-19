@@ -1,6 +1,6 @@
 export const seoData = {
-  title: 'Mario Rossi | Full Stack Developer Angular & TypeScript',
-  description: 'Portfolio di Mario Rossi, Full Stack Developer specializzato in Angular, TypeScript e Tailwind CSS. Scopri i miei progetti web e le mie competenze nello sviluppo frontend e backend.',
+  title: 'Stefano Silvestro | Frontend Developer Angular & Ionic',
+  description: 'Portfolio di Stefano, Sono un Frontend Developer con oltre 5 anni di esperienza nello sviluppo di applicazioni web e mobile. Scopri i miei progetti web e le mie competenze nello sviluppo frontend e backend.',
   image: 'https://cerebrobeso.github.io/steph/img/link-preview.jpg',
   url: 'https://cerebrobeso.github.io/steph'
 }
@@ -8,9 +8,9 @@ export const seoData = {
 export const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
-  "name": "Il tuo nome",
-  "jobTitle": "Full Stack Developer",
+  "name": "Stefano Silvestro",
+  "jobTitle": "Frontend Developer Angular & Ionic",
   "url": "https://cerebrobeso.github.io/steph/",
   "sameAs": ["LinkedIn", "GitHub"],
-  "knowsAbout": ["Angular", "TypeScript", "Tailwind CSS"]
+  "knowsAbout": ["Angular", "TypeScript", "Tailwind CSS" ,"Ionic", "PHP", "Symfony", "Design"]
 }

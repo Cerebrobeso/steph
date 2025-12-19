@@ -45,6 +45,7 @@
           {{ 'title.skills' | translate }}
         </button>
       </li>
+      @if (portfolioData.projects.length > 0) {
       <li>
         <button
           (click)="scrollToSection('projects')"
@@ -58,6 +59,7 @@
           {{ 'title.projects' | translate }}
         </button>
       </li>
+      }
       <li>
         <button
           (click)="scrollToSection('contact')"
@@ -75,7 +77,7 @@
     <button [hlmMenubarTrigger]="languageMenu"
             [hlmTooltipTrigger]="'misc.change-language' | translate"
             aria-describedby="Cambia lingua"
-            class="cursor-pointer"
+            class="cursor-pointer w-25"
             hlmBtn
             variant="outline">
       <ng-icon [name]="currentFlag()" hlmMenuIcon/>
@@ -85,8 +87,7 @@
     <ng-template #languageMenu>
       <hlm-dropdown-menu class="w-40">
         <button
-          (triggered)="changeLanguage('en')"
-          class="cursor-pointer" hlmDropdownMenuItem>
+          (triggered)="changeLanguage('en')" hlmDropdownMenuItem>
           <ng-icon hlmMenuIcon name="flagGb"/>
           English
         </button>

@@ -62,4 +62,5 @@ export class Home {
   }
 
   protected readonly portfolioData = portfolioData;
+  protected readonly data = portfolioData;
 }

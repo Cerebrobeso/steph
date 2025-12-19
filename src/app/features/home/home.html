@@ -21,9 +21,9 @@
           class="min-h-80 mb-8 border rounded-lg bg-card p-8"
           id="about"
         >
-          <h2 class="text-3xl font-bold mb-6">
+          <h1 class="text-3xl font-bold mb-6">
             {{ 'title.about' | translate }}
-          </h2>
+          </h1>
           <div [innerHTML]="portfolioData.about[language()]" class="prose prose-lg dark:prose-invert max-w-none">
           </div>
         </section>
@@ -35,9 +35,9 @@
           class="min-h-80 mb-8 border rounded-lg bg-card p-8"
           id="experience"
         >
-          <h2 class="text-3xl font-bold mb-6">
+          <h1 class="text-3xl font-bold mb-6">
             {{ 'title.experience' | translate }}
-          </h2>
+          </h1>
           <div class="space-y-8">
             @let experiences = portfolioData.experience;
             @for (exp of experiences; track $index + '-exp'; let first = $first) {
@@ -120,6 +120,7 @@
         </section>
 
         <!-- Progetti -->
+        @if (portfolioData.projects.length > 0) {
         <section
           (inView)="onSectionInView('projects', $event)"
           appInView
@@ -159,6 +160,7 @@
             </div>
           </div>
         </section>
+        }
 
         <!-- Contatti -->
         <section
@@ -174,42 +176,13 @@
             {{ 'title.contact-desc'|translate }}
           </p>
 
-          <div class="w-full">
-            <h3 class="text-lg font-semibold mb-4">
-              {{ 'title.write-me'|translate }}
-            </h3>
-            <form class="space-y-4">
-              <div>
-                <label class="block text-sm font-medium mb-2">{{ 'misc.name'|translate }}</label>
-                <input
-                  [placeholder]="'misc.name-placeholder'|translate"
-                  class="w-full px-4 py-2 border rounded-md bg-background"
-                  type="text"
-                />
-              </div>
-              <div>
-                <label class="block text-sm font-medium mb-2">{{ 'misc.email'|translate }}</label>
-                <input
-                  class="w-full px-4 py-2 border rounded-md bg-background"
-                  placeholder="tua@email.com"
-                  type="email"
-                />
-              </div>
-              <div>
-                <label class="block text-sm font-medium mb-2">{{ 'misc.message'|translate }}</label>
-                <textarea
-                  [placeholder]="'misc.message-placeholder'|translate"
-                  class="w-full px-4 py-2 border rounded-md bg-background"
-                  rows="4"
-                ></textarea>
-              </div>
-              <button
-                class="flex ml-auto px-6 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors"
-                type="submit"
-              >
-                {{ 'misc.send-message'|translate }}
-              </button>
-            </form>
+          <div class="w-full flex justify-center">
+            <a
+              class="m-auto px-6 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors"
+              [href]="'mailto:' + portfolioData.personal.email"
+            >
+              {{ 'misc.send-message'|translate }}
+            </a>
           </div>
         </section>
       </div>
