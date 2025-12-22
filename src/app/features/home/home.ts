@@ -3,7 +3,7 @@ import {NgIcon, provideIcons} from '@ng-icons/core';
 import {
   lucideCheck,
   lucideCheckCheck, lucideCheckCircle,
-  lucideCircle,
+  lucideCircle, lucideCircleUserRound,
   lucideGithub,
   lucideLinkedin,
   lucideMail,
@@ -18,11 +18,15 @@ import {TranslatePipe, TranslateService} from '@ngx-translate/core';
 import {map} from 'rxjs';
 import {toSignal} from '@angular/core/rxjs-interop';
 import {portfolioData} from '../../data/portfolio.data';
+import {HlmItemImports} from '@spartan-ng/helm/item';
+import {HlmButtonImports} from '@spartan-ng/helm/button';
+import {HlmSheet, HlmSheetContent, HlmSheetTrigger} from '@spartan-ng/helm/sheet';
+import {BrnSheetContent} from '@spartan-ng/brain/sheet';
 
 
 @Component({
   selector: 'app-home',
-  imports: [NgIcon, HlmIcon, Sidebar, Header, InViewDirective, TranslatePipe],
+  imports: [NgIcon, HlmIcon, Sidebar, Header, InViewDirective, TranslatePipe, HlmItemImports, HlmButtonImports, HlmSheetTrigger, HlmSheet, BrnSheetContent, HlmSheetContent],
   providers: [
     provideIcons({
       lucideMail,
@@ -33,7 +37,8 @@ import {portfolioData} from '../../data/portfolio.data';
       lucideCircle,
       lucideCheck,
       lucideCheckCheck,
-      lucideCheckCircle
+      lucideCheckCircle,
+      lucideCircleUserRound
     }),
   ],
   templateUrl: './home.html',

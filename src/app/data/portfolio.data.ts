@@ -1,6 +1,7 @@
 export const portfolioData = {
 
   personal: {
+    payoff: 'Portfolio',
     name: 'Stefano Silvestro',
     title: 'Frontend Developer',
     email: 'stefanosilvestro@gmail.com',

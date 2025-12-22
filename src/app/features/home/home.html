@@ -7,13 +7,32 @@
   <!-- Container per sidebar e contenuto -->
   <div class="flex">
     <!-- Sidebar -->
-    <aside class="hidden lg:block w-80 sticky lg:top-[112px] self-start max-h-screen overflow-y-auto">
+    <aside class="hidden lg:block w-80 sticky lg:top-28 self-start max-h-screen overflow-y-auto">
       <app-sidebar></app-sidebar>
     </aside>
 
     <!-- Contenuto principale scrollabile -->
-    <main class="flex-1 main-content pt-[110px] lg:pt-0 lg:mb-[50vh]">
-      <div class="p-3 lg:p-0 lg:pl-8">
+    <main class="flex-1 main-content pt-27.5 lg:pt-0 lg:mb-[50vh]">
+      <div class="p-3 md:p-0 lg:pl-8">
+        <div class="px-8 lg:hidden mb-8 backdrop-blur bg-background/95 supports-[backdrop-filter]:bg-background/60" hlmItem
+             variant="outline">
+          <div hlmItemContent>
+            <div class="text-lg" hlmItemTitle>{{portfolioData.personal.name}}</div>
+            <p class="text-base" hlmItemDescription>{{portfolioData.personal.title}}</p>
+          </div>
+          <div hlmItemActions>
+            <hlm-sheet side="right">
+              <button hlmBtn hlmSheetTrigger>
+                <ng-icon hlmMenuIcon name="lucideCircleUserRound"></ng-icon>
+              </button>
+              <hlm-sheet-content *brnSheetContent="let ctx">
+                <div class="grid flex-1 auto-rows-min gap-6 px-4">
+                  <app-sidebar/>
+                </div>
+              </hlm-sheet-content>
+            </hlm-sheet>
+          </div>
+        </div>
         <!-- Chi Sono -->
         <section
           (inView)="onSectionInView('about', $event)"
@@ -21,9 +40,9 @@
           class="min-h-80 mb-8 border rounded-lg bg-card p-8"
           id="about"
         >
-          <h1 class="text-3xl font-bold mb-6">
+          <h2 class="text-3xl font-bold mb-6">
             {{ 'title.about' | translate }}
-          </h1>
+          </h2>
           <div [innerHTML]="portfolioData.about[language()]" class="prose prose-lg dark:prose-invert max-w-none">
           </div>
         </section>
@@ -35,9 +54,9 @@
           class="min-h-80 mb-8 border rounded-lg bg-card p-8"
           id="experience"
         >
-          <h1 class="text-3xl font-bold mb-6">
+          <h2 class="text-3xl font-bold mb-6">
             {{ 'title.experience' | translate }}
-          </h1>
+          </h2>
           <div class="space-y-8">
             @let experiences = portfolioData.experience;
             @for (exp of experiences; track $index + '-exp'; let first = $first) {
@@ -79,15 +98,15 @@
             <div class="flex gap-5 md:mt-3 mb-3 md:mb-0">
               <div>
                 <ng-icon class="text-gray-400" hlm name="lucideCircle" size="xs"/>
-                {{'misc.base'|translate}}
+                {{ 'misc.base'|translate }}
               </div>
               <div>
                 <ng-icon class="text-blue-500 " hlm name="lucideCircle" size="xs"/>
-                {{'misc.medium'|translate}}
+                {{ 'misc.medium'|translate }}
               </div>
               <div>
                 <ng-icon class="text-purple-600" hlm name="lucideCheckCircle" size="xs"/>
-                {{'misc.advanced'|translate}}
+                {{ 'misc.advanced'|translate }}
               </div>
             </div>
           </div>
@@ -121,45 +140,45 @@
 
         <!-- Progetti -->
         @if (portfolioData.projects.length > 0) {
-        <section
-          (inView)="onSectionInView('projects', $event)"
-          appInView
-          class="min-h-80 mb-8 border rounded-lg bg-card p-8"
-          id="projects"
-        >
-          <h2 class="text-3xl font-bold mb-6">
-            {{ 'title.projects' | translate }}
-          </h2>
-          <div class="grid gap-6">
-            <div class="p-6 border rounded-lg bg-card hover:shadow-lg transition-shadow">
-              <h3 class="text-xl font-semibold mb-2">E-commerce Platform</h3>
-              <p class="text-muted-foreground mb-4">
-                Piattaforma e-commerce completa con gestione prodotti, carrello e pagamenti.
-              </p>
-              <div class="flex gap-2">
+          <section
+            (inView)="onSectionInView('projects', $event)"
+            appInView
+            class="min-h-80 mb-8 border rounded-lg bg-card p-8"
+            id="projects"
+          >
+            <h2 class="text-3xl font-bold mb-6">
+              {{ 'title.projects' | translate }}
+            </h2>
+            <div class="grid gap-6">
+              <div class="p-6 border rounded-lg bg-card hover:shadow-lg transition-shadow">
+                <h3 class="text-xl font-semibold mb-2">E-commerce Platform</h3>
+                <p class="text-muted-foreground mb-4">
+                  Piattaforma e-commerce completa con gestione prodotti, carrello e pagamenti.
+                </p>
+                <div class="flex gap-2">
                 <span class="px-3 py-1 text-xs rounded-full bg-primary/10 text-primary"
                 >Angular</span
                 >
-                <span class="px-3 py-1 text-xs rounded-full bg-primary/10 text-primary"
-                >Stripe</span
-                >
+                  <span class="px-3 py-1 text-xs rounded-full bg-primary/10 text-primary"
+                  >Stripe</span
+                  >
+                </div>
               </div>
-            </div>
 
-            <div class="p-6 border rounded-lg bg-card hover:shadow-lg transition-shadow">
-              <h3 class="text-xl font-semibold mb-2">Task Management App</h3>
-              <p class="text-muted-foreground mb-4">
-                Applicazione mobile per la gestione delle attività con sincronizzazione cloud.
-              </p>
-              <div class="flex gap-2">
-                <span class="px-3 py-1 text-xs rounded-full bg-primary/10 text-primary">Ionic</span>
-                <span class="px-3 py-1 text-xs rounded-full bg-primary/10 text-primary"
-                >Capacitor</span
-                >
+              <div class="p-6 border rounded-lg bg-card hover:shadow-lg transition-shadow">
+                <h3 class="text-xl font-semibold mb-2">Task Management App</h3>
+                <p class="text-muted-foreground mb-4">
+                  Applicazione mobile per la gestione delle attività con sincronizzazione cloud.
+                </p>
+                <div class="flex gap-2">
+                  <span class="px-3 py-1 text-xs rounded-full bg-primary/10 text-primary">Ionic</span>
+                  <span class="px-3 py-1 text-xs rounded-full bg-primary/10 text-primary"
+                  >Capacitor</span
+                  >
+                </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
         }
 
         <!-- Contatti -->
@@ -178,8 +197,8 @@
 
           <div class="w-full flex justify-center">
             <a
-              class="m-auto px-6 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors"
               [href]="'mailto:' + portfolioData.personal.email"
+              class="m-auto px-6 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors"
             >
               {{ 'misc.send-message'|translate }}
             </a>

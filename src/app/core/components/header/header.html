@@ -1,7 +1,9 @@
 <nav
   class="container lg:mx-auto flex h-16 items-center justify-between px-8 backdrop-blur bg-background/95 supports-[backdrop-filter]:bg-background/60 rounded-lg border"
 >
-  <h1 class="text-xl font-bold">Portfolio</h1>
+  <h1 class="text-xl font-bold">
+    {{portfolioData.personal.payoff}}
+  </h1>
 
   <div class="flex items-end gap-6">
     <ul class="items-center gap-6 overflow-x-hidden max-w-32.5 lg:max-w-full hidden lg:flex">
@@ -74,6 +76,21 @@
         </button>
       </li>
     </ul>
+
+
+    @if (showBtn$()) {
+      <hlm-sheet side="right" class="block lg:hidden">
+        <button class="cursor-pointer" hlmBtn hlmSheetTrigger>
+          <ng-icon hlmMenuIcon name="lucideCircleUserRound"></ng-icon>
+        </button>
+        <hlm-sheet-content *brnSheetContent="let ctx">
+          <div class="grid flex-1 auto-rows-min gap-6 px-4">
+            <app-sidebar/>
+          </div>
+        </hlm-sheet-content>
+      </hlm-sheet>
+    }
+
     <button [hlmMenubarTrigger]="languageMenu"
             [hlmTooltipTrigger]="'misc.change-language' | translate"
             aria-describedby="Cambia lingua"
@@ -97,16 +114,5 @@
         </button>
       </hlm-dropdown-menu>
     </ng-template>
-
-    <hlm-sheet side="right" class="block md:hidden">
-      <button class="cursor-pointer" hlmBtn hlmSheetTrigger>
-        <ng-icon hlmMenuIcon name="lucideCircleUserRound"></ng-icon>
-      </button>
-      <hlm-sheet-content *brnSheetContent="let ctx">
-        <div class="grid flex-1 auto-rows-min gap-6 px-4">
-          <app-sidebar/>
-        </div>
-      </hlm-sheet-content>
-    </hlm-sheet>
   </div>
 </nav>
