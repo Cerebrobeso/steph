@@ -236,7 +236,7 @@ export const portfolioData = {
           name: 'Joomla', level: 2
         },
         {
-          name: 'WorkPress', level: 2
+          name: 'WordPress', level: 2
         }
       ]
     }
