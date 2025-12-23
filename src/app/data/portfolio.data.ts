@@ -1,5 +1,4 @@
 export const portfolioData = {
-
   personal: {
     payoff: 'Portfolio',
     name: 'Stefano Silvestro',
@@ -7,7 +6,8 @@ export const portfolioData = {
     email: 'stefanosilvestro@gmail.com',
     phone: null,
     location: {
-      it: 'Brescia, Italia', en: 'Brescia, Italy'
+      it: 'Brescia, Italia',
+      en: 'Brescia, Italy',
     },
   },
   social: {
@@ -111,136 +111,156 @@ export const portfolioData = {
     <p class="text-muted-foreground">
       Sono un professionista versatile capace di collegare design, pianificazione di architetture complesse e sviluppo. La mia expertise spazia dalla progettazione di interfacce utente all'implementazione tecnica, permettendomi di offrire soluzioni complete lungo l'intero ciclo di vita del progetto.
     </p>
-    `
+    `,
   },
   experience: [
     {
       company: 'KerberosWeb di Galanti Matteo',
       role: {
         it: 'Frontend Developer e SMM',
-        en: 'Frontend Developer and SMM'
+        en: 'Frontend Developer and SMM',
       },
       duration: {
-        it: '2020 - Presente', en: '2020 - Now'
+        it: '2020 - Presente',
+        en: '2020 - Now',
       },
       description: {
         it: 'Sviluppo e manutenzione di applicazioni sia web che native con Angular e Ionic, implementazione di API, realizzazione di siti web personalizzati con Joomla, creazione di layout con Figma e Adobe XD,  gestione social, cura della brand identity e brand design.',
-        en: 'Development and maintenance of both web and native applications with Angular and Ionic, API implementation, creation of custom websites with Joomla, creation of layouts with Figma and Adobe XD, social media management, brand identity and brand design.'
-      }
+        en: 'Development and maintenance of both web and native applications with Angular and Ionic, API implementation, creation of custom websites with Joomla, creation of layouts with Figma and Adobe XD, social media management, brand identity and brand design.',
+      },
     },
     {
       company: 'Accademia Santa Giulia',
       role: {
-        it: 'Laurea in Web e Comunicazione d\'Impresa',
-        en: 'Web and Corporate Communication Degree'
+        it: "Laurea in Web e Comunicazione d'Impresa",
+        en: 'Web and Corporate Communication Degree',
       },
       duration: {
-        it: '2020', en: '2020'
+        it: '2020',
+        en: '2020',
       },
       description: {
         it: 'Laurea in web marketing e web design.',
-        en: 'Web marketing and web design degree.'
-      }
+        en: 'Web marketing and web design degree.',
+      },
     },
     {
       company: 'Binarreda',
       role: {
         it: 'Web Designer',
-        en: 'Web Designer'
+        en: 'Web Designer',
       },
       duration: {
         it: '2019',
-        en: '2019'
+        en: '2019',
       },
       description: {
         it: 'Creazione del dominio, costruzione e personalizzazione sito web con Wordpress, importazione dei contenuti dal vecchio sito.',
-        en: 'Domain creation, website building and customization with WordPress, content import from the old website.'
-      }
+        en: 'Domain creation, website building and customization with WordPress, content import from the old website.',
+      },
     },
     {
       company: 'Progetto Tangram',
       role: {
         it: 'Web Designer',
-        en: 'Web Designer'
+        en: 'Web Designer',
       },
       duration: {
         it: '2018',
-        en: '2018'
+        en: '2018',
       },
       description: {
         it: 'Aggiornamento e manutenzione del sito web, aggiornamento SEO, gestione della prenotazione dei corsi e aggiornamento della grafica e social.',
-        en: 'Website updates and maintenance, SEO updates, course booking management, and graphics and social media updates.'
-      }
+        en: 'Website updates and maintenance, SEO updates, course booking management, and graphics and social media updates.',
+      },
     },
   ],
-  skills: [{
-    title: 'title.frontend',
-    items: [
-      {
-        name: 'Angular', level: 3
-      },
-      {
-        name: 'Framework Ionic e Capacitor', level: 3
-      },
-      {
-        name: 'Karma/Jest component testing', level: 2
-      },
-      {
-        name: 'Cypress E2E testing', level: 2
-      },
-      {
-        name: 'Tailwind', level: 2
-      }
-    ],
-  },
+  skills: [
+    {
+      title: 'title.frontend',
+      items: [
+        {
+          name: 'Angular',
+          level: 3,
+        },
+        {
+          name: 'Framework Ionic e Capacitor',
+          level: 3,
+        },
+        {
+          name: 'Karma/Jest component testing',
+          level: 2,
+        },
+        {
+          name: 'Cypress E2E testing',
+          level: 2,
+        },
+        {
+          name: 'Tailwind',
+          level: 2,
+        },
+      ],
+    },
     {
       title: 'title.backend',
       items: [
         {
-          name: 'Symfony', level: 2
-        }, {
-          name: 'Postman', level: 2
-        }, {
-          name: 'MariaDB', level: 2
-        }
-      ]
+          name: 'Symfony',
+          level: 2,
+        },
+        {
+          name: 'Postman',
+          level: 2,
+        },
+        {
+          name: 'MariaDB',
+          level: 2,
+        },
+      ],
     },
     {
       title: 'title.design',
       items: [
         {
-          name: 'Adobe Illustrator', level: 3
+          name: 'Adobe Illustrator',
+          level: 3,
         },
         {
-          name: 'Adobe Photoshop', level: 2
+          name: 'Adobe Photoshop',
+          level: 2,
         },
         {
-          name: 'Figma', level: 2
-        }
-      ]
+          name: 'Figma',
+          level: 2,
+        },
+      ],
     },
     {
       title: 'title.integration',
       items: [
         {
-          name: 'Git', level: 2
+          name: 'Git',
+          level: 2,
         },
         {
-          name: 'Jenkins CI/CD', level: 1
-        }
-      ]
+          name: 'Jenkins CI/CD',
+          level: 1,
+        },
+      ],
     },
     {
       title: 'title.cms',
       items: [
         {
-          name: 'Joomla', level: 2
+          name: 'Joomla',
+          level: 2,
         },
         {
-          name: 'WordPress', level: 2
-        }
-      ]
-    }
+          name: 'WordPress',
+          level: 2,
+        },
+      ],
+    },
   ],
   projects: [],
 };
