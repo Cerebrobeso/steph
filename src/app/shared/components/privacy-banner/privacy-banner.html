@@ -1,5 +1,5 @@
 @if (showPrivacyBanner()) {
-  <section class="fixed left-4 bottom-4 w-[450px]" hlmCard>
+  <section class="fixed left-4 bottom-4 right-4 md:w-[450px] border-whitebann" hlmCard>
     <div hlmCardHeader>
       <h3 hlmCardTitle>{{'privacy-banner.title' | translate}}</h3>
       <p hlmCardDescription>{{'privacy-banner.desc' | translate}} <a class="underline" [href]="language() === 'it' ? 'privacy-policy-it' : 'privacy-policy-en'" target="_blank">privacy policy</a></p>
