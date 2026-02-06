@@ -68,6 +68,21 @@
 								</translations>
 							</concept_node>
 							<concept_node>
+								<name>close</name>
+								<description/>
+								<comment/>
+								<translations>
+									<translation>
+										<language>en-GB</language>
+										<approved>false</approved>
+									</translation>
+									<translation>
+										<language>it-IT</language>
+										<approved>false</approved>
+									</translation>
+								</translations>
+							</concept_node>
+							<concept_node>
 								<name>copied</name>
 								<description/>
 								<comment/>
@@ -248,6 +263,21 @@
 								</translations>
 							</concept_node>
 							<concept_node>
+								<name>open-privacy</name>
+								<description/>
+								<comment/>
+								<translations>
+									<translation>
+										<language>en-GB</language>
+										<approved>false</approved>
+									</translation>
+									<translation>
+										<language>it-IT</language>
+										<approved>false</approved>
+									</translation>
+								</translations>
+							</concept_node>
+							<concept_node>
 								<name>phone</name>
 								<description/>
 								<comment/>
@@ -279,6 +309,41 @@
 							</concept_node>
 							<concept_node>
 								<name>send-message</name>
+								<description/>
+								<comment/>
+								<translations>
+									<translation>
+										<language>en-GB</language>
+										<approved>false</approved>
+									</translation>
+									<translation>
+										<language>it-IT</language>
+										<approved>false</approved>
+									</translation>
+								</translations>
+							</concept_node>
+						</children>
+					</folder_node>
+					<folder_node>
+						<name>privacy-banner</name>
+						<children>
+							<concept_node>
+								<name>desc</name>
+								<description/>
+								<comment/>
+								<translations>
+									<translation>
+										<language>en-GB</language>
+										<approved>false</approved>
+									</translation>
+									<translation>
+										<language>it-IT</language>
+										<approved>false</approved>
+									</translation>
+								</translations>
+							</concept_node>
+							<concept_node>
+								<name>title</name>
 								<description/>
 								<comment/>
 								<translations>

@@ -10,6 +10,7 @@ import {
   lucideMapPin,
   lucidePhone,
   lucideSend,
+  lucideShieldCheck,
 } from '@ng-icons/lucide';
 import {portfolioData} from '../../../data/portfolio.data';
 import {TranslatePipe, TranslateService} from '@ngx-translate/core';
@@ -29,7 +30,6 @@ import {toast} from 'ngx-sonner';
     HlmButtonImports,
     CdkCopyToClipboard,
     HlmTooltipImports,
-
   ],
   providers: [
     provideIcons({
@@ -41,6 +41,7 @@ import {toast} from 'ngx-sonner';
       lucideInstagram,
       lucideCopy,
       lucideSend,
+      lucideShieldCheck,
     }),
   ],
   templateUrl: './sidebar.html',

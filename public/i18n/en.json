@@ -3,6 +3,7 @@
 		"advanced": "Advanced",
 		"base": "Base",
 		"change-language": "Change Language",
+		"close": "Close",
 		"copied": "Email copied!",
 		"copy-email": "Copy email",
 		"email": "Email",
@@ -15,9 +16,14 @@
 		"open-github": "Open Github",
 		"open-instagram": "Open Instagram",
 		"open-linkedin": "Open Linkedin",
+		"open-privacy": "Open the privacy policy page",
 		"phone": "Telephone",
 		"send-emil": "Send me an email",
 		"send-message": "Send me an email"
+	},
+	"privacy-banner": {
+		"desc": "If you want to know more, read the",
+		"title": "I use anonymous analytics."
 	},
 	"title": {
 		"about": "About",

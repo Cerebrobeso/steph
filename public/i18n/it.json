@@ -3,6 +3,7 @@
 		"advanced": "Avanzato",
 		"base": "Base",
 		"change-language": "Cambia lingua",
+		"close": "Chiudi",
 		"copied": "Email copiata!",
 		"copy-email": "Copia email",
 		"email": "Email",
@@ -15,9 +16,14 @@
 		"open-github": "Apri Github",
 		"open-instagram": "Apri Instagram",
 		"open-linkedin": "Apri Linkedin",
+		"open-privacy": "Apri la pagina per la privacy policy",
 		"phone": "Telefono",
 		"send-emil": "Inviami un'email",
 		"send-message": "Inviami un'email"
+	},
+	"privacy-banner": {
+		"desc": "Se vuoi saperne di più leggi la",
+		"title": "Utilizzo analytics anonimi."
 	},
 	"title": {
 		"about": "Chi sono ",

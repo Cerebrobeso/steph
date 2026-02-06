@@ -5,5 +5,5 @@ export const homeRoutes: Routes = [
   {
     path: '',
     component: Home,
-  },
+  }
 ];

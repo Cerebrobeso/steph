@@ -22,11 +22,26 @@ import {HlmItemImports} from '@spartan-ng/helm/item';
 import {HlmButtonImports} from '@spartan-ng/helm/button';
 import {HlmSheet, HlmSheetContent, HlmSheetTrigger} from '@spartan-ng/helm/sheet';
 import {BrnSheetContent} from '@spartan-ng/brain/sheet';
+import { PrivacyBanner } from '../../shared/components/privacy-banner/privacy-banner';
 
 
 @Component({
   selector: 'app-home',
-  imports: [NgIcon, HlmIcon, Sidebar, Header, InViewDirective, TranslatePipe, HlmItemImports, HlmButtonImports, HlmSheetTrigger, HlmSheet, BrnSheetContent, HlmSheetContent],
+  imports: [
+    NgIcon,
+    HlmIcon,
+    Sidebar,
+    Header,
+    InViewDirective,
+    TranslatePipe,
+    HlmItemImports,
+    HlmButtonImports,
+    HlmSheetTrigger,
+    HlmSheet,
+    BrnSheetContent,
+    HlmSheetContent,
+    PrivacyBanner,
+  ],
   providers: [
     provideIcons({
       lucideMail,
@@ -38,7 +53,7 @@ import {BrnSheetContent} from '@spartan-ng/brain/sheet';
       lucideCheck,
       lucideCheckCheck,
       lucideCheckCircle,
-      lucideCircleUserRound
+      lucideCircleUserRound,
     }),
   ],
   templateUrl: './home.html',
@@ -49,16 +64,15 @@ export class Home {
 
   activeSection = signal<string>('about');
   language = toSignal(
-    this.translateService.onLangChange.pipe<"it" | "en">(
-      map(event => event.lang as keyof { it: string; en: string; })
+    this.translateService.onLangChange.pipe<'it' | 'en'>(
+      map((event) => event.lang as keyof { it: string; en: string }),
     ),
     {
-      initialValue: 'it' as keyof { it: string; en: string; },
-    }
+      initialValue: 'it' as keyof { it: string; en: string },
+    },
   );
 
   constructor() {}
-
 
   onSectionInView(sectionId: any, isInView: boolean) {
     if (isInView) {
