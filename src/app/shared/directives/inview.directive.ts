@@ -1,7 +1,6 @@
 import {
   Directive,
   ElementRef,
-  OnInit,
   OnDestroy,
   input,
   output,
@@ -9,16 +8,15 @@ import {
   inject,
   signal,
   afterNextRender,
-  Inject,
   DOCUMENT,
-  AfterViewInit,
 } from '@angular/core';
 @Directive({
   selector: '[appInView]',
   standalone: true,
 })
-export class InViewDirective implements AfterViewInit, OnDestroy {
-  private elementRef = inject(ElementRef);
+export class InViewDirective implements OnDestroy {
+  private elementRef = inject<ElementRef<HTMLElement>>(ElementRef);
+  private document = inject(DOCUMENT);
 
   inViewClass = input('in-view');
   offsetPx = input(280);
@@ -26,15 +24,10 @@ export class InViewDirective implements AfterViewInit, OnDestroy {
   inView = output<boolean>();
   isVisible = signal(false);
 
-  private readonly isBrowser: boolean;
+  private readonly isBrowser = typeof window !== 'undefined';
   private observer?: IntersectionObserver;
 
-  constructor(
-    private el: ElementRef<HTMLElement>,
-    @Inject(DOCUMENT) private document: Document,
-  ) {
-    this.isBrowser = typeof window !== 'undefined';
-
+  constructor() {
     effect(() => {
       const className = this.inViewClass();
       const visible = this.isVisible();
@@ -51,8 +44,6 @@ export class InViewDirective implements AfterViewInit, OnDestroy {
       this.setupObserver();
     });
   }
-
-  ngAfterViewInit() {}
 
   private setupObserver() {
     if (!this.isBrowser) {
@@ -91,13 +82,13 @@ export class InViewDirective implements AfterViewInit, OnDestroy {
         });
       },
       {
-        root:  this.document,
+        root: this.document,
         rootMargin: '-120px',
         threshold: [0.6, 0.7, 0.8, 0.9],
       },
     );
 
-    this.observer.observe(this.el.nativeElement);
+    this.observer.observe(this.elementRef.nativeElement);
   }
 
   ngOnDestroy() {

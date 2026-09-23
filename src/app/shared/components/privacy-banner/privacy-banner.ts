@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, signal, ChangeDetectionStrategy } from '@angular/core';
 
 import { HlmCardImports } from '@spartan-ng/helm/card';
 import { HlmButtonImports } from '@spartan-ng/helm/button';
@@ -10,6 +10,7 @@ import { map } from 'rxjs';
   selector: 'app-privacy-banner',
   imports: [HlmCardImports, HlmButtonImports, TranslatePipe],
   templateUrl: './privacy-banner.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrl: './privacy-banner.css',
 })
 export class PrivacyBanner {

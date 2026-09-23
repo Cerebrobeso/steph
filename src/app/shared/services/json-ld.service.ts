@@ -1,17 +1,14 @@
-import { Injectable, Inject, PLATFORM_ID } from '@angular/core';
+import { Injectable, inject, PLATFORM_ID } from '@angular/core';
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class JsonLdService {
+  private document = inject(DOCUMENT);
+  private platformId = inject(PLATFORM_ID);
 
-  constructor(
-    @Inject(DOCUMENT) private document: Document,
-    @Inject(PLATFORM_ID) private platformId: Object
-  ) {}
-
-  insertSchema(schema: any, className = 'structured-data') {
+  insertSchema(schema: Record<string, unknown>, className = 'structured-data') {
     // Verifica se siamo nel browser o durante SSG
     if (!isPlatformBrowser(this.platformId)) {
       // Durante SSG, aggiungi sempre
@@ -25,7 +22,7 @@ export class JsonLdService {
     }
   }
 
-  private addScript(schema: any, className: string) {
+  private addScript(schema: Record<string, unknown>, className: string) {
     const script = this.document.createElement('script');
     script.type = 'application/ld+json';
     script.className = className;

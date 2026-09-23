@@ -1,35 +1,32 @@
-import {Component, effect, inject, signal} from '@angular/core';
-import {NgIcon, provideIcons} from '@ng-icons/core';
+import { Component, inject, signal, ChangeDetectionStrategy } from '@angular/core';
+import { NgIcon, provideIcons } from '@ng-icons/core';
 import {
   lucideCheck,
-  lucideCheckCheck, lucideCheckCircle,
-  lucideCircle, lucideCircleUserRound,
-  lucideGithub,
-  lucideLinkedin,
+  lucideCheckCheck,
+  lucideCheckCircle,
+  lucideCircle,
+  lucideCircleUserRound,
   lucideMail,
   lucideMapPin,
   lucidePhone,
 } from '@ng-icons/lucide';
-import {HlmIcon} from '@spartan-ng/helm/icon';
-import {Sidebar} from '../../core/components/sidebar/sidebar';
-import {Header} from '../../core/components/header/header';
-import {InViewDirective} from '../../shared/directives/inview.directive';
-import {TranslatePipe, TranslateService} from '@ngx-translate/core';
-import {map} from 'rxjs';
-import {toSignal} from '@angular/core/rxjs-interop';
-import {portfolioData} from '../../data/portfolio.data';
-import {HlmItemImports} from '@spartan-ng/helm/item';
-import {HlmButtonImports} from '@spartan-ng/helm/button';
-import {HlmSheet, HlmSheetContent, HlmSheetTrigger} from '@spartan-ng/helm/sheet';
-import {BrnSheetContent} from '@spartan-ng/brain/sheet';
+import { Sidebar } from '../../core/components/sidebar/sidebar';
+import { Header } from '../../core/components/header/header';
+import { InViewDirective } from '../../shared/directives/inview.directive';
+import { TranslatePipe, TranslateService } from '@ngx-translate/core';
+import { map } from 'rxjs';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { portfolioData } from '../../data/portfolio.data';
+import { HlmItemImports } from '@spartan-ng/helm/item';
+import { HlmButtonImports } from '@spartan-ng/helm/button';
+import { HlmSheet, HlmSheetContent, HlmSheetTrigger } from '@spartan-ng/helm/sheet';
+import { BrnSheetContent } from '@spartan-ng/brain/sheet';
 import { PrivacyBanner } from '../../shared/components/privacy-banner/privacy-banner';
-
 
 @Component({
   selector: 'app-home',
   imports: [
     NgIcon,
-    HlmIcon,
     Sidebar,
     Header,
     InViewDirective,
@@ -47,8 +44,6 @@ import { PrivacyBanner } from '../../shared/components/privacy-banner/privacy-ba
       lucideMail,
       lucidePhone,
       lucideMapPin,
-      lucideLinkedin,
-      lucideGithub,
       lucideCircle,
       lucideCheck,
       lucideCheckCheck,
@@ -57,6 +52,7 @@ import { PrivacyBanner } from '../../shared/components/privacy-banner/privacy-ba
     }),
   ],
   templateUrl: './home.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrl: './home.css',
 })
 export class Home {
@@ -72,9 +68,7 @@ export class Home {
     },
   );
 
-  constructor() {}
-
-  onSectionInView(sectionId: any, isInView: boolean) {
+  onSectionInView(sectionId: string, isInView: boolean) {
     if (isInView) {
       this.activeSection.set(sectionId);
     }

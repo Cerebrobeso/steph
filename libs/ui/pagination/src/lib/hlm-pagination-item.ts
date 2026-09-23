@@ -1,15 +1,7 @@
-import { Directive, computed, input } from '@angular/core';
-import { hlm } from '@spartan-ng/helm/utils';
-import type { ClassValue } from 'clsx';
+import { Directive } from '@angular/core';
 
 @Directive({
-  selector: 'li[hlmPaginationItem]',
-  host: {
-    'data-slot': 'pagination-item',
-    '[class]': '_computedClass()',
-  },
+	selector: 'li[hlmPaginationItem]',
+	host: { 'data-slot': 'pagination-item' },
 })
-export class HlmPaginationItem {
-  public readonly userClass = input<ClassValue>('', { alias: 'class' });
-  protected readonly _computedClass = computed(() => hlm('', this.userClass()));
-}
+export class HlmPaginationItem {}

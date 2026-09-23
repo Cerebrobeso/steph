@@ -1,15 +1,15 @@
-import { TranslateLoader } from '@ngx-translate/core';
+import { TranslateLoader, TranslationObject } from '@ngx-translate/core';
 import { makeStateKey, StateKey, TransferState } from '@angular/core';
 import { Observable } from 'rxjs';
 import * as fs from 'fs';
 import { join } from 'path';
-import {environment} from '../../../environments/environment';
+import { environment } from '../../../environments/environment';
 
 export class TranslateServerLoader implements TranslateLoader {
   env = environment;
   constructor(private transferState: TransferState) {}
 
-  getTranslation(lang: string): Observable<any> {
+  getTranslation(lang: string): Observable<TranslationObject> {
     return new Observable((observer) => {
       let prefix = 'dist/steph/browser/i18n';
       if (!this.env.production) {
@@ -17,8 +17,8 @@ export class TranslateServerLoader implements TranslateLoader {
       }
 
       const path = join(process.cwd(), prefix, `${lang}.json`);
-      const jsonData = JSON.parse(fs.readFileSync(path, 'utf8'));
-      const key: StateKey<any> = makeStateKey('transfer-translate-' + lang);
+      const jsonData: TranslationObject = JSON.parse(fs.readFileSync(path, 'utf8'));
+      const key: StateKey<TranslationObject> = makeStateKey('transfer-translate-' + lang);
       this.transferState.set(key, jsonData);
       observer.next(jsonData);
       observer.complete();

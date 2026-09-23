@@ -1,8 +1,8 @@
-import {TranslateLoader} from '@ngx-translate/core';
-import {makeStateKey, StateKey, TransferState} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
-import {environment} from '../../../environments/environment';
+import { TranslateLoader, TranslationObject } from '@ngx-translate/core';
+import { makeStateKey, StateKey, TransferState } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { environment } from '../../../environments/environment';
 
 export class TranslateBrowserLoader implements TranslateLoader {
   env = environment;
@@ -11,12 +11,13 @@ export class TranslateBrowserLoader implements TranslateLoader {
     private http: HttpClient,
     private transferState: TransferState,
     private prefix = './i18n/',
-    private suffix = '.json'
-  ) {
-  }
+    private suffix = '.json',
+  ) {}
 
-  getTranslation(lang: string): Observable<any> {
-    const key: StateKey<any> = makeStateKey<any>('transfer-translate-' + lang);
+  getTranslation(lang: string): Observable<TranslationObject> {
+    const key: StateKey<TranslationObject> = makeStateKey<TranslationObject>(
+      'transfer-translate-' + lang,
+    );
     const data = this.transferState.get(key, null);
     if (!this.env.production) {
       this.prefix = './public/i18n/';
@@ -29,13 +30,13 @@ export class TranslateBrowserLoader implements TranslateLoader {
       });
     }
     const url = `${this.prefix}${lang}${this.suffix}`;
-    return this.http.get<any>(url);
+    return this.http.get<TranslationObject>(url);
   }
 }
 
 export function translateBrowserLoaderFactory(
   httpClient: HttpClient,
-  transferState: TransferState
+  transferState: TransferState,
 ) {
   return new TranslateBrowserLoader(httpClient, transferState);
 }

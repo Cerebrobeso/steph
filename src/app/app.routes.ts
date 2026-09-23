@@ -12,12 +12,18 @@ export const routes: Routes = [
       },
       {
         path: 'privacy-policy-it',
-        loadChildren: () => import('./features/privacy-policy/privacy-page-it/privacy-page.routes').then(m => m.privacyPageRoutes)
+        loadChildren: () =>
+          import('./features/privacy-policy/privacy-page-it/privacy-page.routes').then(
+            (m) => m.privacyPageRoutes,
+          ),
       },
       {
         path: 'privacy-policy-en',
-        loadChildren: () => import('./features/privacy-policy/privacy-page-en/privacy-page.routes').then(m => m.privacyPageRoutes)
-      }
+        loadChildren: () =>
+          import('./features/privacy-policy/privacy-page-en/privacy-page.routes').then(
+            (m) => m.privacyPageRoutes,
+          ),
+      },
     ],
   },
   { path: '', redirectTo: '', pathMatch: 'full' },

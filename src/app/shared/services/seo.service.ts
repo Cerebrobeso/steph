@@ -1,17 +1,15 @@
-import {DOCUMENT, Inject, Injectable, PLATFORM_ID} from '@angular/core';
-import {Meta, Title} from '@angular/platform-browser';
-import {isPlatformBrowser} from '@angular/common';
+import { DOCUMENT, inject, Injectable, PLATFORM_ID } from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
+import { isPlatformBrowser } from '@angular/common';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SeoService {
-  constructor(
-    private meta: Meta,
-    private title: Title,
-    @Inject(DOCUMENT) private document: Document,
-    @Inject(PLATFORM_ID) private platformId: Object
-  ) {}
+  private meta = inject(Meta);
+  private title = inject(Title);
+  private document = inject(DOCUMENT);
+  private platformId = inject(PLATFORM_ID);
 
   setCanonicalUrl(url: string) {
     if (isPlatformBrowser(this.platformId)) {
@@ -27,12 +25,7 @@ export class SeoService {
     }
   }
 
-  setMetaTags(config: {
-    title: string;
-    description: string;
-    image: string;
-    url: string;
-  }) {
+  setMetaTags(config: { title: string; description: string; image: string; url: string }) {
     this.title.setTitle(config.title);
 
     this.meta.updateTag({ name: 'description', content: config.description });

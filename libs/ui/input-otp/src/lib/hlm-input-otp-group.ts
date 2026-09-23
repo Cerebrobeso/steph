@@ -1,16 +1,12 @@
-import { computed, Directive, input } from '@angular/core';
-import { hlm } from '@spartan-ng/helm/utils';
-import type { ClassValue } from 'clsx';
+import { Directive } from '@angular/core';
+import { classes } from '@spartan-ng/helm/utils';
 
 @Directive({
-  selector: '[hlmInputOtpGroup]',
-  host: {
-    'data-slot': 'input-otp-group',
-    '[class]': '_computedClass()',
-  },
+	selector: '[hlmInputOtpGroup],hlm-input-otp-group',
+	host: { 'data-slot': 'input-otp-group' },
 })
 export class HlmInputOtpGroup {
-  public readonly userClass = input<ClassValue>('', { alias: 'class' });
-
-  protected readonly _computedClass = computed(() => hlm('flex items-center', this.userClass()));
+	constructor() {
+		classes(() => 'has-data-[matches-spartan-invalid=true]:ring-destructive/20 dark:has-data-[matches-spartan-invalid=true]:ring-destructive/40 has-data-[matches-spartan-invalid=true]:border-destructive rounded-md has-data-[matches-spartan-invalid=true]:ring-3 flex items-center');
+	}
 }

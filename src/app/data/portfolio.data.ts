@@ -18,46 +18,60 @@ export const portfolioData = {
   about: {
     en: `
     <p class="text-muted-foreground">
-      I am a Frontend Developer with over 5 years of experience developing web and mobile applications. I specialize in Angular, Ionic (a framework that enables native app development with Capacitor), TypeScript, and the architecture of scalable, high-performance solutions.
+      I am a Frontend Developer with over 5 years of experience developing web and mobile applications, specialized in Angular, Ionic/Capacitor and TypeScript. I've published an open-source Angular library for Stripe integration and solved advanced CI/CD, store-compliance and multi-brand deep linking challenges.
     </p>
     <h2 class="text-2xl font-bold mt-6 mb-3">
     Key responsibilities and achievements
     </h2>
-    <b>App Deployment and Publishing</b>
+    <p class="font-bold mt-3">Frontend &amp; mobile development</p>
     <ul class="list-disc pl-4">
         <li class="text-muted-foreground">
-            I managed the deployment of web applications on servers with Plesk and the publishing of native apps on the App Store and Google Play.
+            Development and maintenance of web and mobile applications with Angular and Ionic/Capacitor, with UI and styling handled through Tailwind.
         </li>
         <li class="text-muted-foreground">
-            I completed client profiles by implementing presentation materials, including informational content and visual assets.
+            Testing with Vitest (component/unit) and Cypress (E2E) to reduce regressions.
         </li>
     </ul>
-    <p class="font-bold mt-3">
-    Social media and content management
-    </b>
+    <p class="font-bold mt-3">CMS &amp; websites</p>
     <ul class="list-disc pl-4">
         <li class="text-muted-foreground">
-            I managed the company's social media presence on Instagram, Facebook, and LinkedIn.
-        </li>
-        <li class="text-muted-foreground">
-            I created and executed editorial calendars for consistent publication and effective engagement.
+            Development and management of company and client websites with Joomla, including custom templates and module overrides.
         </li>
     </ul>
-    <p class="font-bold mt-3">Brand identity and visual design</p>
-
+    <p class="font-bold mt-3">Design</p>
     <ul class="list-disc pl-4">
         <li class="text-muted-foreground">
-            I led the graphic design and brand identity initiatives for the company website.
-        </li>
-        <li class="text-muted-foreground">
-            I refined the logo design and established consistent communication guidelines.
+            Layout and interface design in Figma.
         </li>
     </ul>
-
-    <p class="font-bold mt-3">Backend development</p>
+    <p class="font-bold mt-3">DevOps &amp; releases</p>
     <ul class="list-disc pl-4">
         <li class="text-muted-foreground">
-           I contributed to the design and implementation of APIs for enterprise applications with solid backend development skills.
+            Resolution of advanced CI/CD issues and Google Play policy compliance.
+        </li>
+        <li class="text-muted-foreground">
+            Automated semantic versioning and release management (Plesk, App Store, Google Play).
+        </li>
+    </ul>
+    <p class="font-bold mt-3">Open-source libraries</p>
+    <ul class="list-disc pl-4">
+        <li class="text-muted-foreground">
+            Development and publication of an open-source Angular library for Stripe integration, with a native Capacitor adapter.
+        </li>
+    </ul>
+    <p class="font-bold mt-3">AI-assisted development</p>
+    <ul class="list-disc pl-4">
+        <li class="text-muted-foreground">
+            Integration of Claude Code into my daily workflow (MCP configuration, dedicated subagents) to speed up development, testing and code review.
+        </li>
+    </ul>
+    <p class="font-bold mt-3">Backend &amp; social media</p>
+    <ul class="list-disc pl-4">
+        <li class="text-muted-foreground">
+            Contributions to Symfony/PHP APIs, testing with Postman, MySQL/MariaDB basics.
+        </li>
+        <li class="text-muted-foreground">
+            Management of company social media channels.
         </li>
     </ul>
     <h2 class="text-2xl font-bold mt-6 mb-3">
@@ -69,45 +83,63 @@ export const portfolioData = {
     `,
     it: `
     <p class="text-muted-foreground">
-      Sono un Frontend Developer con oltre 5 anni di esperienza nello sviluppo di applicazioni web e mobile. Mi specializzo in Angular, Ionic (framework che permette lo sviluppo di app native insieme a Capacitor), TypeScript e nell'architettura di soluzioni scalabili e performanti.
+      Sono un Frontend Developer con oltre 5 anni di esperienza nello sviluppo di applicazioni web e mobile, specializzato in Angular, Ionic/Capacitor e TypeScript. Ho pubblicato una libreria Angular open-source per l'integrazione di Stripe e risolto problematiche avanzate di CI/CD, conformità agli store e deep linking multi-brand.
     </p>
     <h2 class="text-2xl font-bold mt-6 mb-3">Responsabilità chiave e risultati</h2>
-    <b>Deployment e pubblicazione app</b>
+    <p class="font-bold mt-3">Sviluppo frontend e mobile</p>
     <ul class="list-disc pl-4">
         <li class="text-muted-foreground">
-            Ho gestito il deployment di applicazioni web su server con Plesk e la pubblicazione di app native su App Store e Google Play.
+            Sviluppo e manutenzione di applicazioni web e mobile con Angular e Ionic/Capacitor, con UI e styling curati tramite Tailwind.
         </li>
         <li class="text-muted-foreground">
-            Ho completato i profili dei clienti implementando materiali di presentazione, inclusi contenuti informativi e asset visivi.
+            Testing con Vitest (component/unit) e Cypress (E2E) per ridurre le regressioni.
         </li>
     </ul>
-    <p class="font-bold mt-3">Social media e content management</b>
+    <p class="font-bold mt-3">CMS e siti web</p>
     <ul class="list-disc pl-4">
         <li class="text-muted-foreground">
-            Ho gestito la presenza aziendale sui social media attraverso Instagram, Facebook e LinkedIn.
-        </li>
-        <li class="text-muted-foreground">
-            Ho creato ed eseguito calendari editoriali per una pubblicazione costante e un engagement efficace.
+            Sviluppo e gestione di siti web aziendali e per clienti con Joomla, inclusi template custom e override di moduli.
         </li>
     </ul>
-    <p class="font-bold mt-3">Brand identity e design visivo</p>
-
+    <p class="font-bold mt-3">Design</p>
     <ul class="list-disc pl-4">
         <li class="text-muted-foreground">
-            Ho guidato le iniziative di graphic design e brand identity per il sito web aziendale.
-        </li>
-        <li class="text-muted-foreground">
-            Ho raffinato il design del logo e stabilito linee guida di comunicazione coerenti.
+            Realizzazione di layout e interfacce in Figma.
         </li>
     </ul>
-
-    <p class="font-bold mt-3">Sviluppo backend</p>
+    <p class="font-bold mt-3">DevOps e rilasci</p>
     <ul class="list-disc pl-4">
         <li class="text-muted-foreground">
-           Ho contribuito alla progettazione e implementazione di API per le applicazioni aziendali con solide competenze di sviluppo backend.
+            Risoluzione di problematiche avanzate di CI/CD e conformità alle policy di Google Play.
+        </li>
+        <li class="text-muted-foreground">
+            Versioning semantico automatizzato e gestione dei rilasci (Plesk, App Store, Google Play).
         </li>
     </ul>
-    <h2 class="text-2xl font-bold mt-6 mb-3">Descrizione professionale</h2>
+    <p class="font-bold mt-3">Librerie open-source</p>
+    <ul class="list-disc pl-4">
+        <li class="text-muted-foreground">
+            Sviluppo e pubblicazione di una libreria Angular open-source per l'integrazione di Stripe, con adapter nativo per Capacitor.
+        </li>
+    </ul>
+    <p class="font-bold mt-3">AI-assisted development</p>
+    <ul class="list-disc pl-4">
+        <li class="text-muted-foreground">
+            Integrazione di Claude Code nel workflow quotidiano (configurazione MCP, subagenti dedicati) per velocizzare sviluppo, testing e code review.
+        </li>
+    </ul>
+    <p class="font-bold mt-3">Backend e social media</p>
+    <ul class="list-disc pl-4">
+        <li class="text-muted-foreground">
+           Contributi su API Symfony/PHP, test con Postman, basi MySQL/MariaDB.
+        </li>
+        <li class="text-muted-foreground">
+           Gestione dei canali social aziendali.
+        </li>
+    </ul>
+    <h2 class="text-2xl font-bold mt-6 mb-3">
+    Descrizione professionale
+    </h2>
     <p class="text-muted-foreground">
       Sono un professionista versatile capace di collegare design, pianificazione di architetture complesse e sviluppo. La mia expertise spazia dalla progettazione di interfacce utente all'implementazione tecnica, permettendomi di offrire soluzioni complete lungo l'intero ciclo di vita del progetto.
     </p>
@@ -117,16 +149,16 @@ export const portfolioData = {
     {
       company: 'KerberosWeb di Galanti Matteo',
       role: {
-        it: 'Frontend Developer e SMM',
-        en: 'Frontend Developer and SMM',
+        it: 'Web Application Developer',
+        en: 'Web Application Developer',
       },
       duration: {
         it: '2020 - Presente',
         en: '2020 - Now',
       },
       description: {
-        it: 'Sviluppo e manutenzione di applicazioni sia web che native con Angular e Ionic, implementazione di API, realizzazione di siti web personalizzati con Joomla, creazione di layout con Figma e Adobe XD,  gestione social, cura della brand identity e brand design.',
-        en: 'Development and maintenance of both web and native applications with Angular and Ionic, API implementation, creation of custom websites with Joomla, creation of layouts with Figma and Adobe XD, social media management, brand identity and brand design.',
+        it: "Sviluppo e manutenzione di applicazioni web e mobile con Angular e Ionic/Capacitor, realizzazione di siti web personalizzati con Joomla, layout e UI in Figma, testing con Vitest e Cypress, risoluzione di problematiche avanzate di CI/CD e conformità Google Play, pubblicazione di una libreria Angular open-source per l'integrazione di Stripe, integrazione di Claude Code nel workflow di sviluppo, contributi backend su API Symfony/PHP e gestione dei canali social aziendali.",
+        en: 'Development and maintenance of web and mobile applications with Angular and Ionic/Capacitor, custom website development with Joomla, layout and UI in Figma, testing with Vitest and Cypress, resolution of advanced CI/CD issues and Google Play compliance, publication of an open-source Angular library for Stripe integration, integration of Claude Code into the development workflow, backend contributions on Symfony/PHP APIs, and company social media management.',
       },
     },
     {
@@ -188,7 +220,7 @@ export const portfolioData = {
           level: 3,
         },
         {
-          name: 'Karma/Jest component testing',
+          name: 'Vitest component/unit testing',
           level: 2,
         },
         {
@@ -245,6 +277,10 @@ export const portfolioData = {
         {
           name: 'Jenkins CI/CD',
           level: 1,
+        },
+        {
+          name: 'Claude Code (AI-assisted development)',
+          level: 2,
         },
       ],
     },

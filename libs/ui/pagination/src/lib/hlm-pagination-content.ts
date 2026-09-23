@@ -1,17 +1,12 @@
-import { Directive, computed, input } from '@angular/core';
-import { hlm } from '@spartan-ng/helm/utils';
-import type { ClassValue } from 'clsx';
+import { Directive } from '@angular/core';
+import { classes } from '@spartan-ng/helm/utils';
 
 @Directive({
-  selector: 'ul[hlmPaginationContent]',
-  host: {
-    'data-slot': 'pagination-content',
-    '[class]': '_computedClass()',
-  },
+	selector: 'ul[hlmPaginationContent]',
+	host: { 'data-slot': 'pagination-content' },
 })
 export class HlmPaginationContent {
-  public readonly userClass = input<ClassValue>('', { alias: 'class' });
-  protected readonly _computedClass = computed(() =>
-    hlm('flex flex-row items-center gap-1', this.userClass()),
-  );
+	constructor() {
+		classes(() => 'gap-1 flex items-center');
+	}
 }

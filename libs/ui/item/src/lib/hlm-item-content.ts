@@ -1,17 +1,12 @@
-import { computed, Directive, input } from '@angular/core';
-import { hlm } from '@spartan-ng/helm/utils';
-import type { ClassValue } from 'clsx';
+import { Directive } from '@angular/core';
+import { classes } from '@spartan-ng/helm/utils';
 
 @Directive({
-  selector: '[hlmItemContent],hlm-item-content',
-  host: {
-    'data-slot': 'item-content',
-    '[class]': '_computedClass()',
-  },
+	selector: '[hlmItemContent],hlm-item-content',
+	host: { 'data-slot': 'item-content' },
 })
 export class HlmItemContent {
-  public readonly userClass = input<ClassValue>('', { alias: 'class' });
-  protected readonly _computedClass = computed(() =>
-    hlm('flex flex-1 flex-col gap-1 [&+[data-slot=item-content]]:flex-none', this.userClass()),
-  );
+	constructor() {
+		classes(() => 'gap-1 group-data-[size=xs]/item:gap-0 flex flex-1 flex-col [&+[data-slot=item-content]]:flex-none');
+	}
 }

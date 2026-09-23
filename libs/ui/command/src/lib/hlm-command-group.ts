@@ -1,27 +1,21 @@
-import { computed, Directive, input } from '@angular/core';
+import { Directive } from '@angular/core';
 import { BrnCommandGroup } from '@spartan-ng/brain/command';
-import { hlm } from '@spartan-ng/helm/utils';
-import type { ClassValue } from 'clsx';
+import { classes } from '@spartan-ng/helm/utils';
 
 @Directive({
-  selector: '[hlmCommandGroup],hlm-command-group',
-  hostDirectives: [
-    {
-      directive: BrnCommandGroup,
-      inputs: ['id'],
-    },
-  ],
-  host: {
-    'data-slot': 'command-group',
-    '[class]': '_computedClass()',
-  },
+	selector: '[hlmCommandGroup],hlm-command-group',
+	hostDirectives: [
+		{
+			directive: BrnCommandGroup,
+			inputs: ['id'],
+		},
+	],
+	host: {
+		'data-slot': 'command-group',
+	},
 })
 export class HlmCommandGroup {
-  /** The user defined class  */
-  public readonly userClass = input<ClassValue>('', { alias: 'class' });
-
-  /** The styles to apply  */
-  protected readonly _computedClass = computed(() =>
-    hlm('text-foreground block overflow-hidden p-1 data-[hidden]:hidden', this.userClass()),
-  );
+	constructor() {
+		classes(() => 'text-foreground **:data-[slot=command-group-label]:text-muted-foreground overflow-hidden p-1 **:data-[slot=command-group-label]:px-2 **:data-[slot=command-group-label]:py-1.5 **:data-[slot=command-group-label]:text-xs **:data-[slot=command-group-label]:font-medium block data-hidden:hidden');
+	}
 }

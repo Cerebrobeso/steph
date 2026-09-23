@@ -14,12 +14,12 @@ export * from './lib/hlm-breadcrumb-list';
 export * from './lib/hlm-breadcrumb-page';
 export * from './lib/hlm-breadcrumb-separator';
 
-export const HlmBreadCrumbImports = [
-  HlmBreadcrumb,
-  HlmBreadcrumbEllipsis,
-  HlmBreadcrumbSeparator,
-  HlmBreadcrumbItem,
-  HlmBreadcrumbLink,
-  HlmBreadcrumbPage,
-  HlmBreadcrumbList,
+export const HlmBreadcrumbImports = [
+	HlmBreadcrumb,
+	HlmBreadcrumbEllipsis,
+	HlmBreadcrumbSeparator,
+	HlmBreadcrumbItem,
+	HlmBreadcrumbLink,
+	HlmBreadcrumbPage,
+	HlmBreadcrumbList,
 ] as const;

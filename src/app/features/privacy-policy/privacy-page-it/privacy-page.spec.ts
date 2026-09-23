@@ -8,9 +8,8 @@ describe('PrivacyPage', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PrivacyPage]
-    })
-    .compileComponents();
+      imports: [PrivacyPage],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(PrivacyPage);
     component = fixture.componentInstance;

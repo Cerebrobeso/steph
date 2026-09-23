@@ -1,31 +1,14 @@
-import { computed, Directive, effect, inject, input } from '@angular/core';
+import { Directive } from '@angular/core';
 import { HlmInput } from '@spartan-ng/helm/input';
-import { hlm } from '@spartan-ng/helm/utils';
-import type { ClassValue } from 'clsx';
+import { classes } from '@spartan-ng/helm/utils';
 
 @Directive({
-  selector: 'input[hlmInputGroupInput]',
-  hostDirectives: [HlmInput],
-  host: {
-    'data-slot': 'input-group-control',
-    '[class]': '_computedClass()',
-  },
+	selector: 'input[hlmInputGroupInput]',
+	hostDirectives: [HlmInput],
+	host: { 'data-slot': 'input-group-control' },
 })
 export class HlmInputGroupInput {
-  private readonly _hlmInput = inject(HlmInput);
-
-  public readonly userClass = input<ClassValue>('', { alias: 'class' });
-
-  protected readonly _computedClass = computed(() =>
-    hlm(
-      'flex-1 rounded-none border-0 bg-transparent shadow-none focus-visible:ring-0 dark:bg-transparent',
-      this.userClass(),
-    ),
-  );
-
-  constructor() {
-    effect(() => {
-      this._hlmInput.setClass(this._computedClass());
-    });
-  }
+	constructor() {
+		classes(() => `rounded-none border-0 bg-transparent shadow-none ring-0 focus-visible:ring-0 data-[matches-spartan-invalid=true]:ring-0 dark:bg-transparent flex-1`);
+	}
 }

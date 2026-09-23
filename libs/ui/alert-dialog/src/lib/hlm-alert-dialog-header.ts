@@ -1,17 +1,12 @@
-import { computed, Directive, input } from '@angular/core';
-import { hlm } from '@spartan-ng/helm/utils';
-import type { ClassValue } from 'clsx';
+import { Directive } from '@angular/core';
+import { classes } from '@spartan-ng/helm/utils';
 
 @Directive({
-  selector: '[hlmAlertDialogHeader],hlm-alert-dialog-header',
-  host: {
-    'data-slot': 'alert-dialog-header',
-    '[class]': '_computedClass()',
-  },
+	selector: '[hlmAlertDialogHeader],hlm-alert-dialog-header',
+	host: { 'data-slot': 'alert-dialog-header' },
 })
 export class HlmAlertDialogHeader {
-  public readonly userClass = input<ClassValue>('', { alias: 'class' });
-  protected readonly _computedClass = computed(() =>
-    hlm('flex flex-col gap-2 text-center sm:text-left', this.userClass()),
-  );
+	constructor() {
+		classes(() => 'grid grid-rows-[auto_1fr] place-items-center gap-1.5 text-center has-data-[slot=alert-dialog-media]:grid-rows-[auto_auto_1fr] has-data-[slot=alert-dialog-media]:gap-x-6 sm:group-data-[size=default]/alert-dialog-content:place-items-start sm:group-data-[size=default]/alert-dialog-content:text-start sm:group-data-[size=default]/alert-dialog-content:has-data-[slot=alert-dialog-media]:grid-rows-[auto_1fr]');
+	}
 }

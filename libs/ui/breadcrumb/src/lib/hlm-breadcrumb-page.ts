@@ -1,20 +1,17 @@
-import { Directive, computed, input } from '@angular/core';
-import { hlm } from '@spartan-ng/helm/utils';
-import type { ClassValue } from 'clsx';
+import { Directive } from '@angular/core';
+import { classes } from '@spartan-ng/helm/utils';
 
 @Directive({
-  selector: '[hlmBreadcrumbPage]',
-  host: {
-    role: 'link',
-    'aria-disabled': 'true',
-    'aria-current': 'page',
-    '[class]': '_computedClass()',
-  },
+	selector: '[hlmBreadcrumbPage]',
+	host: {
+		'data-slot': 'breadcrumb-page',
+		role: 'link',
+		'aria-disabled': 'true',
+		'aria-current': 'page',
+	},
 })
 export class HlmBreadcrumbPage {
-  public readonly userClass = input<ClassValue>('', { alias: 'class' });
-
-  protected readonly _computedClass = computed(() =>
-    hlm('text-foreground font-normal', this.userClass()),
-  );
+	constructor() {
+		classes(() => 'text-foreground font-normal');
+	}
 }

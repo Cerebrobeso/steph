@@ -1,31 +1,28 @@
-import {Component, inject} from '@angular/core';
-import {NgIcon, provideIcons} from '@ng-icons/core';
-import {HlmIcon} from '@spartan-ng/helm/icon';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
+import { NgIcon, provideIcons } from '@ng-icons/core';
 import {
   lucideCopy,
-  lucideGithub,
-  lucideInstagram,
-  lucideLinkedin,
   lucideMail,
   lucideMapPin,
   lucidePhone,
   lucideSend,
   lucideShieldCheck,
 } from '@ng-icons/lucide';
-import {portfolioData} from '../../../data/portfolio.data';
-import {TranslatePipe, TranslateService} from '@ngx-translate/core';
-import {toSignal} from '@angular/core/rxjs-interop';
-import {map} from 'rxjs';
-import {HlmButtonImports} from '@spartan-ng/helm/button';
-import {CdkCopyToClipboard} from '@angular/cdk/clipboard';
-import {HlmTooltipImports} from '@spartan-ng/helm/tooltip';
-import {toast} from 'ngx-sonner';
+import { simpleGithub, simpleInstagram } from '@ng-icons/simple-icons';
+import { simpleLinkedin } from '../../../shared/icons/simple-linkedin';
+import { portfolioData } from '../../../data/portfolio.data';
+import { TranslatePipe, TranslateService } from '@ngx-translate/core';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { map } from 'rxjs';
+import { HlmButtonImports } from '@spartan-ng/helm/button';
+import { CdkCopyToClipboard } from '@angular/cdk/clipboard';
+import { HlmTooltipImports } from '@spartan-ng/helm/tooltip';
+import { toast } from '@spartan-ng/brain/sonner';
 
 @Component({
   selector: 'app-sidebar',
   imports: [
     NgIcon,
-    HlmIcon,
     TranslatePipe,
     HlmButtonImports,
     CdkCopyToClipboard,
@@ -36,15 +33,16 @@ import {toast} from 'ngx-sonner';
       lucideMail,
       lucidePhone,
       lucideMapPin,
-      lucideLinkedin,
-      lucideGithub,
-      lucideInstagram,
       lucideCopy,
       lucideSend,
       lucideShieldCheck,
+      simpleLinkedin,
+      simpleGithub,
+      simpleInstagram,
     }),
   ],
   templateUrl: './sidebar.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrl: './sidebar.css',
 })
 export class Sidebar {

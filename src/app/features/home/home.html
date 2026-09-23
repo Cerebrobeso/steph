@@ -1,6 +1,9 @@
 <div class="container p-0 flex flex-col">
   <!-- Header full-width -->
-  <header class="lg:w-full h-16 lg:mt-4 lg:mb-8 z-999 fixed lg:sticky top-4 mx-3 lg:mx-0" style="right: 0; left: 0;">
+  <header
+    class="lg:w-full h-16 lg:mt-4 lg:mb-8 z-999 fixed lg:sticky top-4 mx-3 lg:mx-0"
+    style="right: 0; left: 0"
+  >
     <app-header [(activeSection)]="activeSection"></app-header>
   </header>
 
@@ -14,11 +17,14 @@
     <!-- Contenuto principale scrollabile -->
     <main class="flex-1 main-content pt-27.5 lg:pt-0 lg:mb-[50vh]">
       <div class="p-3 md:p-0 lg:pl-8">
-        <div class="px-8 lg:hidden mb-8 rounded-lg backdrop-blur bg-background/95 supports-[backdrop-filter]:bg-background/60" hlmItem
-             variant="outline">
+        <div
+          class="px-8 lg:hidden mb-8 rounded-lg backdrop-blur bg-background/95 supports-[backdrop-filter]:bg-background/60"
+          hlmItem
+          variant="outline"
+        >
           <div hlmItemContent>
-            <div class="text-lg" hlmItemTitle>{{portfolioData.personal.name}}</div>
-            <p class="text-base" hlmItemDescription>{{portfolioData.personal.title}}</p>
+            <div class="text-lg" hlmItemTitle>{{ portfolioData.personal.name }}</div>
+            <p class="text-base" hlmItemDescription>{{ portfolioData.personal.title }}</p>
           </div>
           <div hlmItemActions>
             <hlm-sheet side="right">
@@ -27,7 +33,7 @@
               </button>
               <hlm-sheet-content *brnSheetContent="let ctx">
                 <div class="grid flex-1 auto-rows-min gap-6 px-4">
-                  <app-sidebar/>
+                  <app-sidebar />
                 </div>
               </hlm-sheet-content>
             </hlm-sheet>
@@ -43,8 +49,10 @@
           <h2 class="text-3xl font-bold mb-6">
             {{ 'title.about' | translate }}
           </h2>
-          <div [innerHTML]="portfolioData.about[language()]" class="prose prose-lg dark:prose-invert max-w-none">
-          </div>
+          <div
+            [innerHTML]="portfolioData.about[language()]"
+            class="prose prose-lg dark:prose-invert max-w-none"
+          ></div>
         </section>
 
         <!-- Esperienza -->
@@ -60,11 +68,14 @@
           <div class="space-y-8">
             @let experiences = portfolioData.experience;
             @for (exp of experiences; track $index + '-exp'; let first = $first) {
-              <div [class.border-muted]="!first"
-                   [class.border-primary]="first"
-                   class="border-l-2 border-primary pl-6"
+              <div
+                [class.border-muted]="!first"
+                [class.border-primary]="first"
+                class="border-l-2 border-primary pl-6"
               >
-                <div class="flex items-start md:items-center gap-2 mb-2 flex-col md:flex-row justify-between">
+                <div
+                  class="flex items-start md:items-center gap-2 mb-2 flex-col md:flex-row justify-between"
+                >
                   <h3 class="text-xl font-semibold">
                     {{ exp.role[language()] }}
                   </h3>
@@ -80,7 +91,6 @@
                 </p>
               </div>
             }
-
           </div>
         </section>
 
@@ -97,36 +107,35 @@
             </h2>
             <div class="flex gap-5 md:mt-3 mb-3 md:mb-0">
               <div>
-                <ng-icon class="text-gray-400" hlm name="lucideCircle" size="xs"/>
-                {{ 'misc.base'|translate }}
+                <ng-icon class="text-gray-400 text-[length:--spacing(3)]" name="lucideCircle" />
+                {{ 'misc.base' | translate }}
               </div>
               <div>
-                <ng-icon class="text-blue-500 " hlm name="lucideCircle" size="xs"/>
-                {{ 'misc.medium'|translate }}
+                <ng-icon class="text-blue-500 text-[length:--spacing(3)]" name="lucideCircle" />
+                {{ 'misc.medium' | translate }}
               </div>
               <div>
-                <ng-icon class="text-purple-600" hlm name="lucideCheckCircle" size="xs"/>
-                {{ 'misc.advanced'|translate }}
+                <ng-icon class="text-purple-600 text-[length:--spacing(3)]" name="lucideCheckCircle" />
+                {{ 'misc.advanced' | translate }}
               </div>
             </div>
           </div>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             @for (skill of portfolioData.skills; track skill.title) {
               <div class="p-6 border rounded-lg bg-card">
-                <h3 class="text-lg font-semibold mb-4">{{ skill.title|translate }}</h3>
+                <h3 class="text-lg font-semibold mb-4">{{ skill.title | translate }}</h3>
                 <ul class="space-y-2">
                   @for (item of skill.items; track item.name) {
-
                     <li class="flex items-center gap-2">
                       @switch (item.level) {
                         @case (1) {
-                          <ng-icon class="text-gray-400" hlm name="lucideCircle" size="xs"/>
+                          <ng-icon class="text-gray-400 text-[length:--spacing(3)]" name="lucideCircle" />
                         }
                         @case (2) {
-                          <ng-icon class="text-blue-500 " hlm name="lucideCircle" size="xs"/>
+                          <ng-icon class="text-blue-500 text-[length:--spacing(3)]" name="lucideCircle" />
                         }
                         @case (3) {
-                          <ng-icon class="text-purple-600" hlm name="lucideCheckCircle" size="xs"/>
+                          <ng-icon class="text-purple-600 text-[length:--spacing(3)]" name="lucideCheckCircle" />
                         }
                       }
                       <span class="text-muted-foreground">{{ item.name }}</span>
@@ -156,11 +165,11 @@
                   Piattaforma e-commerce completa con gestione prodotti, carrello e pagamenti.
                 </p>
                 <div class="flex gap-2">
-                <span class="px-3 py-1 text-xs rounded-full bg-primary/10 text-primary"
-                >Angular</span
-                >
                   <span class="px-3 py-1 text-xs rounded-full bg-primary/10 text-primary"
-                  >Stripe</span
+                    >Angular</span
+                  >
+                  <span class="px-3 py-1 text-xs rounded-full bg-primary/10 text-primary"
+                    >Stripe</span
                   >
                 </div>
               </div>
@@ -171,9 +180,11 @@
                   Applicazione mobile per la gestione delle attività con sincronizzazione cloud.
                 </p>
                 <div class="flex gap-2">
-                  <span class="px-3 py-1 text-xs rounded-full bg-primary/10 text-primary">Ionic</span>
                   <span class="px-3 py-1 text-xs rounded-full bg-primary/10 text-primary"
-                  >Capacitor</span
+                    >Ionic</span
+                  >
+                  <span class="px-3 py-1 text-xs rounded-full bg-primary/10 text-primary"
+                    >Capacitor</span
                   >
                 </div>
               </div>
@@ -192,7 +203,7 @@
             {{ 'title.contact' | translate }}
           </h2>
           <p class="text-muted-foreground mb-8">
-            {{ 'title.contact-desc'|translate }}
+            {{ 'title.contact-desc' | translate }}
           </p>
 
           <div class="w-full flex justify-center">
@@ -200,7 +211,7 @@
               [href]="'mailto:' + portfolioData.personal.email"
               class="m-auto px-6 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors"
             >
-              {{ 'misc.send-message'|translate }}
+              {{ 'misc.send-message' | translate }}
             </a>
           </div>
         </section>

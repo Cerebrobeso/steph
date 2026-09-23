@@ -1,15 +1,16 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, signal, ChangeDetectionStrategy } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import {SeoService} from './shared/services/seo.service';
-import {jsonLd, seoData} from './data/seo.data';
-import {JsonLdService} from './shared/services/json-ld.service';
+import { SeoService } from './shared/services/seo.service';
+import { jsonLd, seoData } from './data/seo.data';
+import { JsonLdService } from './shared/services/json-ld.service';
 import { HlmToaster } from '@spartan-ng/helm/sonner';
 
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet, HlmToaster],
   templateUrl: './app.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrl: './app.css',
 })
 export class App {

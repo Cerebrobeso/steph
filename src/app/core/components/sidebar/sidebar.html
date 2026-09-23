@@ -18,16 +18,24 @@
     <!-- Info contatti -->
     @if (data.personal.email) {
       <div class="flex items-start gap-3">
-        <ng-icon hlm size="sm" name="lucideMail" class="mt-0.5 text-muted-foreground"/>
+        <ng-icon
+          name="lucideMail"
+          class="text-[length:--spacing(4)] mt-0.5 text-muted-foreground"
+        />
         <div>
           <p class="text-sm font-medium">{{ 'misc.email' | translate }}</p>
-          <p class="text-sm text-muted-foreground">{{ data.personal.email }}
-            <button hlmBtn size="icon" variant="ghost" class="size-2 ml-2"
-                    [hlmTooltipTrigger]="'misc.copy-email' | translate"
-                    [cdkCopyToClipboard]="data.personal.email"
-                    (cdkCopyToClipboardCopied)="onCopied($event)"
+          <p class="text-sm text-muted-foreground">
+            {{ data.personal.email }}
+            <button
+              hlmBtn
+              size="icon"
+              variant="ghost"
+              class="size-2 ml-2"
+              [hlmTooltip]="'misc.copy-email' | translate"
+              [cdkCopyToClipboard]="data.personal.email"
+              (cdkCopyToClipboardCopied)="onCopied($event)"
             >
-              <ng-icon hlm size="sm" name="lucideCopy"/>
+              <ng-icon name="lucideCopy" class="text-[length:--spacing(4)]" />
             </button>
           </p>
         </div>
@@ -36,7 +44,10 @@
 
     @if (data.personal.phone) {
       <div class="flex items-start gap-3">
-        <ng-icon hlm size="sm" name="lucidePhone" class="mt-0.5 text-muted-foreground"/>
+        <ng-icon
+          name="lucidePhone"
+          class="text-[length:--spacing(4)] mt-0.5 text-muted-foreground"
+        />
         <div>
           <p class="text-sm font-medium">{{ 'misc.phone' | translate }}</p>
           <p class="text-sm text-muted-foreground">{{ data.personal.phone }}</p>
@@ -46,7 +57,10 @@
 
     @if (data.personal.location) {
       <div class="flex items-start gap-3">
-        <ng-icon hlm size="sm" name="lucideMapPin" class="mt-0.5 text-muted-foreground"/>
+        <ng-icon
+          name="lucideMapPin"
+          class="text-[length:--spacing(4)] mt-0.5 text-muted-foreground"
+        />
         <div>
           <p class="text-sm font-medium">{{ 'misc.location' | translate }}</p>
           <p class="text-sm text-muted-foreground">{{ data.personal.location[language()] }}</p>
@@ -56,54 +70,54 @@
   </div>
 
   <div class="flex gap-4 mt-8">
-  <!-- Social links -->
+    <!-- Social links -->
     @if (data.personal.email) {
       <a
         [href]="'mailto:' + data.personal.email"
-        [hlmTooltipTrigger]="'misc.send-emil' | translate"
+        [hlmTooltip]="'misc.send-emil' | translate"
         target="_blank"
         class="w-10 h-10 rounded-full bg-muted flex items-center justify-center hover:bg-muted/80 transition-colors"
       >
-        <ng-icon hlm size="sm" name="lucideSend" />
+        <ng-icon name="lucideSend" class="text-[length:--spacing(4)]" />
       </a>
     }
     @if (data.social.linkedin) {
       <a
         [href]="data.social.linkedin"
-        [hlmTooltipTrigger]="'misc.open-linkedin' | translate"
+        [hlmTooltip]="'misc.open-linkedin' | translate"
         target="_blank"
         class="w-10 h-10 rounded-full bg-muted flex items-center justify-center hover:bg-muted/80 transition-colors"
       >
-        <ng-icon hlm size="sm" name="lucideLinkedin" />
+        <ng-icon name="simpleLinkedin" class="text-[length:--spacing(4)]" />
       </a>
     }
     @if (data.social.github) {
       <a
         [href]="data.social.github"
-        [hlmTooltipTrigger]="'misc.open-github' | translate"
+        [hlmTooltip]="'misc.open-github' | translate"
         target="_blank"
         class="w-10 h-10 rounded-full bg-muted flex items-center justify-center hover:bg-muted/80 transition-colors"
       >
-        <ng-icon hlm size="sm" name="lucideGithub" />
+        <ng-icon name="simpleGithub" class="text-[length:--spacing(4)]" />
       </a>
     }
     @if (data.social.instagram) {
       <a
         [href]="data.social.instagram"
-        [hlmTooltipTrigger]="'misc.open-instagram' | translate"
+        [hlmTooltip]="'misc.open-instagram' | translate"
         target="_blank"
         class="w-10 h-10 rounded-full bg-muted flex items-center justify-center hover:bg-muted/80 transition-colors"
       >
-        <ng-icon hlm size="sm" name="lucideInstagram" />
+        <ng-icon name="simpleInstagram" class="text-[length:--spacing(4)]" />
       </a>
     }
     <a
       [href]="language() === 'it' ? 'privacy-policy-it' : 'privacy-policy-en'"
-      [hlmTooltipTrigger]="'misc.open-privacy' | translate"
+      [hlmTooltip]="'misc.open-privacy' | translate"
       target="_blank"
       class="w-10 h-10 rounded-full bg-muted flex items-center justify-center hover:bg-muted/80 transition-colors"
     >
-      <ng-icon hlm size="sm" name="lucideShieldCheck" />
+      <ng-icon name="lucideShieldCheck" class="text-[length:--spacing(4)]" />
     </a>
   </div>
 </div>

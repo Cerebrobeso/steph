@@ -1,14 +1,33 @@
-import { Directive, computed, input } from '@angular/core';
-import { hlm } from '@spartan-ng/helm/utils';
-import type { ClassValue } from 'clsx';
+import { Directive } from '@angular/core';
+import { BrnPopover, provideBrnPopoverConfig, provideBrnPopoverDefaultOptions } from '@spartan-ng/brain/popover';
+import { BrnSelect } from '@spartan-ng/brain/select';
+import { classes } from '@spartan-ng/helm/utils';
 
 @Directive({
-  selector: 'hlm-select, brn-select [hlm]',
-  host: {
-    '[class]': '_computedClass()',
-  },
+	selector: '[hlmSelect],hlm-select',
+	providers: [
+		provideBrnPopoverConfig({
+			align: 'start',
+			sideOffset: 6,
+		}),
+		provideBrnPopoverDefaultOptions({ role: null }),
+	],
+	hostDirectives: [
+		{
+			directive: BrnSelect,
+			inputs: ['disabled', 'value', 'isItemEqualToValue', 'itemToString'],
+			outputs: ['valueChange'],
+		},
+		{
+			directive: BrnPopover,
+			inputs: ['align', 'closeOnOutsidePointerEvents', 'sideOffset', 'state', 'offsetX', 'scrollStrategy'],
+			outputs: ['stateChanged', 'closed'],
+		},
+	],
+	host: { 'data-slot': 'select' },
 })
 export class HlmSelect {
-  public readonly userClass = input<ClassValue>('', { alias: 'class' });
-  protected readonly _computedClass = computed(() => hlm('space-y-2', this.userClass()));
+	constructor() {
+		classes(() => 'block');
+	}
 }

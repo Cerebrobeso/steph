@@ -5,7 +5,7 @@
 export const environment = {
   production: true,
   storage_prefix: 'steph_app',
-  title: 'Steph - Portfolio'
+  title: 'Steph - Portfolio',
 };
 
 /*

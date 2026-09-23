@@ -5,5 +5,5 @@ export const privacyPageRoutes: Routes = [
   {
     path: '',
     component: PrivacyPage,
-  }
+  },
 ];

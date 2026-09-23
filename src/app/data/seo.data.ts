@@ -13,5 +13,17 @@ export const jsonLd = {
   jobTitle: 'Frontend Developer Angular & Ionic',
   url: 'https://cerebrobeso.github.io/steph/',
   sameAs: ['LinkedIn', 'GitHub'],
-  knowsAbout: ['Angular', 'TypeScript', 'Tailwind CSS', 'Ionic', 'PHP', 'Symfony', 'Design'],
+  knowsAbout: [
+    'Angular',
+    'TypeScript',
+    'Tailwind CSS',
+    'Ionic',
+    'Capacitor',
+    'Joomla',
+    'Figma',
+    'PHP',
+    'Symfony',
+    'CI/CD',
+    'Design',
+  ],
 };

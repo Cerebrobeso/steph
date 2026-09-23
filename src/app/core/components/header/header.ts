@@ -6,6 +6,7 @@ import {
   model,
   PLATFORM_ID,
   signal,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 
@@ -25,7 +26,7 @@ import { HlmSheetImports } from '@spartan-ng/helm/sheet';
 import { BrnSheetContent } from '@spartan-ng/brain/sheet';
 import { portfolioData } from '../../../data/portfolio.data';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { distinctUntilChanged, filter, fromEvent, map, of } from 'rxjs';
+import { distinctUntilChanged, fromEvent, map, of } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -52,6 +53,7 @@ import { distinctUntilChanged, filter, fromEvent, map, of } from 'rxjs';
     }),
   ],
   templateUrl: './header.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrl: './header.css',
 })
 export class Header {

@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   storage_prefix: 'development_app',
-  title: 'Development'
+  title: 'Development',
 };
 
 /*

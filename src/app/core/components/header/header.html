@@ -77,7 +77,6 @@
       </li>
     </ul>
 
-
     <hlm-sheet class="block lg:hidden" side="right">
       @if (showBtn$$()) {
         <button class="cursor-pointer" hlmBtn hlmSheetTrigger>
@@ -86,30 +85,31 @@
       }
       <hlm-sheet-content *brnSheetContent="let ctx">
         <div class="grid flex-1 auto-rows-min gap-6 px-4">
-          <app-sidebar/>
+          <app-sidebar />
         </div>
       </hlm-sheet-content>
     </hlm-sheet>
 
-    <button [hlmMenubarTrigger]="languageMenu"
-            [hlmTooltipTrigger]="'misc.change-language' | translate"
-            aria-describedby="Cambia lingua"
-            class="cursor-pointer w-25"
-            hlmBtn
-            variant="outline">
-      <ng-icon [name]="currentFlag()" hlmMenuIcon/>
+    <button
+      [hlmMenubarTrigger]="languageMenu"
+      [hlmTooltip]="'misc.change-language' | translate"
+      aria-describedby="Cambia lingua"
+      class="cursor-pointer w-25"
+      hlmBtn
+      variant="outline"
+    >
+      <ng-icon [name]="currentFlag()" hlmMenuIcon />
       {{ currentLanguage() }}
     </button>
 
     <ng-template #languageMenu>
       <hlm-dropdown-menu class="w-40">
-        <button
-          (triggered)="changeLanguage('en')" hlmDropdownMenuItem>
-          <ng-icon hlmMenuIcon name="flagGb"/>
+        <button (triggered)="changeLanguage('en')" hlmDropdownMenuItem>
+          <ng-icon hlmMenuIcon name="flagGb" />
           English
         </button>
         <button (triggered)="changeLanguage('it')" hlmDropdownMenuItem>
-          <ng-icon hlmMenuIcon name="flagIt"/>
+          <ng-icon hlmMenuIcon name="flagIt" />
           Italiano
         </button>
       </hlm-dropdown-menu>
